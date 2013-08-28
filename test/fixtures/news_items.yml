@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  release_date: 2013-08-28
+  vendor: MyString
+  headline: MyString
+  topic: MyString
+  keywords: MyString
+  web_url: MyString
+  doc_url: MyString
+  comment: MyText
+  RssSource_id: 
+
+two:
+  release_date: 2013-08-28
+  vendor: MyString
+  headline: MyString
+  topic: MyString
+  keywords: MyString
+  web_url: MyString
+  doc_url: MyString
+  comment: MyText
+  RssSource_id: 

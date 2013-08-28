@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @news_item.release_date %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @news_item.vendor %>
+</p>
+
+<p>
+  <strong>Headline:</strong>
+  <%= @news_item.headline %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @news_item.topic %>
+</p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @news_item.keywords %>
+</p>
+
+<p>
+  <strong>Web url:</strong>
+  <%= @news_item.web_url %>
+</p>
+
+<p>
+  <strong>Doc url:</strong>
+  <%= @news_item.doc_url %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @news_item.comment %>
+</p>
+
+<p>
+  <strong>Rsssource:</strong>
+  <%= @news_item.RssSource %>
+</p>
+
+<%= link_to 'Edit', edit_news_item_path(@news_item) %> |
+<%= link_to 'Back', news_items_path %>
