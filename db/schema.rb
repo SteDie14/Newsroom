@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130828111916) do
+ActiveRecord::Schema.define(version: 20130829122604) do
 
   create_table "news_items", force: true do |t|
     t.date     "release_date"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20130828111916) do
     t.integer  "RssSource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "guid"
+    t.text     "summary"
   end
 
   add_index "news_items", ["RssSource_id"], name: "index_news_items_on_RssSource_id", using: :btree
