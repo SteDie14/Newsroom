@@ -8,7 +8,7 @@ class RssSource < ActiveRecord::Base
       guid = entry.id
       news_item = self.news_items.where(:guid => guid).first
       if news_item.nil?
-        self.news_items.build!(
+        self.news_items.create!(
           :headline => entry.title,
           :summary => entry.summary,
           :web_url => entry.url,

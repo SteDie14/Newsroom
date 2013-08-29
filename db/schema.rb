@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20130829122604) do
     t.string   "web_url"
     t.string   "doc_url"
     t.text     "comment"
-    t.integer  "rss_source"
+    t.integer  "rss_source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "guid"
