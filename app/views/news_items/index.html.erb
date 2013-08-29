@@ -1,26 +1,28 @@
-<h1>Listing news_items</h1>
-
-<table>
+<%- model_class = NewsItem -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Release date</th>
-      <th>Vendor</th>
-      <th>Headline</th>
-      <th>Topic</th>
-      <th>Keywords</th>
-      <th>Web url</th>
-      <th>Doc url</th>
-      <th>Comment</th>
-      <th>Rsssource</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:release_date) %></th>
+      <th><%= model_class.human_attribute_name(:vendor) %></th>
+      <th><%= model_class.human_attribute_name(:headline) %></th>
+      <th><%= model_class.human_attribute_name(:topic) %></th>
+      <th><%= model_class.human_attribute_name(:keywords) %></th>
+      <th><%= model_class.human_attribute_name(:web_url) %></th>
+      <th><%= model_class.human_attribute_name(:doc_url) %></th>
+      <th><%= model_class.human_attribute_name(:comment) %></th>
+      <th><%= model_class.human_attribute_name(:RssSource_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @news_items.each do |news_item| %>
       <tr>
+        <td><%= link_to news_item.id, news_item_path(news_item) %></td>
         <td><%= news_item.release_date %></td>
         <td><%= news_item.vendor %></td>
         <td><%= news_item.headline %></td>
@@ -29,15 +31,22 @@
         <td><%= news_item.web_url %></td>
         <td><%= news_item.doc_url %></td>
         <td><%= news_item.comment %></td>
-        <td><%= news_item.RssSource %></td>
-        <td><%= link_to 'Show', news_item %></td>
-        <td><%= link_to 'Edit', edit_news_item_path(news_item) %></td>
-        <td><%= link_to 'Destroy', news_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= news_item.RssSource_id %></td>
+        <td><%=l news_item.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_news_item_path(news_item), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      news_item_path(news_item),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New News item', new_news_item_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_news_item_path,
+            :class => 'btn btn-primary' %>
