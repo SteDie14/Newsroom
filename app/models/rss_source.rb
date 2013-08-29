@@ -1,16 +1,20 @@
+require 'feedzirra'
 class RssSource < ActiveRecord::Base
+  has_many :news_items
+
   def update_from_feed
     feed = Feedzirra::Feed.fetch_and_parse(self.url)
     feed.entries.each do |entry|
       guid = entry.id
-      news_item = NewsItem.where(:RssSource_id => self.id).where(:guid => guid).first
+      news_item = self.news_items.where(:guid => guid).first
       if news_item.nil?
-        NewsItem.create!(
+        self.news_items.build!(
           :headline => entry.title,
           :summary => entry.summary,
           :web_url => entry.url,
           :release_date => entry.published,
-          :guid => entry.id
+          :guid => entry.id,
+          #:rss_source_id => self.id
         )
       end
     end

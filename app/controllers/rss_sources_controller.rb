@@ -13,7 +13,12 @@ class RssSourcesController < ApplicationController
   end
 
   def synchronize
-    RssSource.find(params[:id]).update_from_feed
+    rss_source = RssSource.find(params[:id])
+
+    if rss_source
+      rss_source.update_from_feed
+    end
+
     return redirect_to :action => :show
   end
 

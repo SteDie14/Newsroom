@@ -9,8 +9,7 @@ class CreateNewsItems < ActiveRecord::Migration
       t.string :web_url
       t.string :doc_url
       t.text :comment
-      t.references :RssSource, index: true
-
+      t.integer :rss_source, index: true
       t.timestamps
     end
   end

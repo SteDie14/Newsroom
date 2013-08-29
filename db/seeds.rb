@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+RssSource.create!(
+    :title => 'Google News  - Elektromotor',
+    :url => 'http://news.google.com/news?hl=de&gl=de&authuser=0&q=elektromotor&um=1&ie=UTF-8&output=rss'
+)

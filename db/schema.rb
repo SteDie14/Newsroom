@@ -22,14 +22,12 @@ ActiveRecord::Schema.define(version: 20130829122604) do
     t.string   "web_url"
     t.string   "doc_url"
     t.text     "comment"
-    t.integer  "RssSource_id"
+    t.integer  "rss_source"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "guid"
     t.text     "summary"
   end
-
-  add_index "news_items", ["RssSource_id"], name: "index_news_items_on_RssSource_id", using: :btree
 
   create_table "rss_sources", force: true do |t|
     t.string   "title"
