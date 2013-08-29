@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e947551d-7fe9-46eb-9171-b319ec1d6bf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20130828111916_create_news_items.rb" afterPath="$PROJECT_DIR$/db/migrate/20130828111916_create_news_items.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/news_items/index.html.erb" afterPath="$PROJECT_DIR$/app/views/news_items/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/rss_source.rb" afterPath="$PROJECT_DIR$/app/models/rss_source.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="newsgrabber.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -16,10 +13,10 @@
     <file path="/20130829115636_add_guid_to_rss_source.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377779296156" ignored="false" />
     <file path="/rss_source.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377790145466" ignored="false" />
     <file path="/rss_sources_controller.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377787921267" ignored="false" />
-    <file path="/routes.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377784119408" ignored="false" />
+    <file path="/routes.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377798871174" ignored="false" />
     <file path="/20130828111916_create_news_items.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377789034284" ignored="false" />
     <file path="/seeds.rb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377788604305" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377790210465" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377798876010" ignored="false" />
     <file path="/index.html.erb" changelist="e947551d-7fe9-46eb-9171-b319ec1d6bf5" time="1377790205201" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,10 +46,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/news_items/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="31" selection-start="1525" selection-end="1525" vertical-scroll-proportion="0.6405959">
+            <state line="33" column="31" selection-start="1525" selection-end="1525" vertical-scroll-proportion="-14.333333">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="26" selection-start="66" selection-end="66" vertical-scroll-proportion="0.03218884">
               <folding />
             </state>
           </provider>
@@ -115,13 +121,13 @@
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/db/migrate/20130829115636_add_guid_to_rss_source.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/rss_sources_controller.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130828111916_create_news_items.rb" />
         <option value="$PROJECT_DIR$/app/models/rss_source.rb" />
         <option value="$PROJECT_DIR$/app/views/news_items/index.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -136,7 +142,7 @@
     <option name="x" value="49" />
     <option name="y" value="24" />
     <option name="width" value="1871" />
-    <option name="height" value="1056" />
+    <option name="height" value="961" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -534,16 +540,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="49" y="24" width="1871" height="1056" extended-state="6" />
+    <frame x="49" y="24" width="1871" height="961" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.54299176" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12054794" sideWeight="0.61482257" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13589041" sideWeight="0.61482257" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38517746" sideWeight="0.49917808" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12054794" sideWeight="0.5724218" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13589041" sideWeight="0.5724218" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4275782" sideWeight="0.49917808" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28645834" sideWeight="0.5008219" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25520834" sideWeight="0.49917808" order="2" side_tool="false" content_ui="tabs" />
@@ -678,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="113" selection-start="971" selection-end="971" vertical-scroll-proportion="0.96256685">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="31" selection-start="2576" selection-end="2576" vertical-scroll-proportion="0.34078214">
@@ -729,7 +728,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/news_items/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="31" selection-start="1525" selection-end="1525" vertical-scroll-proportion="0.6405959">
+        <state line="33" column="31" selection-start="1525" selection-end="1525" vertical-scroll-proportion="-14.333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="26" selection-start="66" selection-end="66" vertical-scroll-proportion="0.03218884">
           <folding />
         </state>
       </provider>
