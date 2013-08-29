@@ -16,3 +16,5 @@
 /tmp
 
 public/dispatch.fcgi
+
+.idea/workspace.xml
