@@ -12,6 +12,11 @@ class RssSourcesController < ApplicationController
   def show
   end
 
+  def synchronize
+    RssSource.find(params[:id]).update_from_feed
+    return redirect_to :action => :show
+  end
+
   # GET /rss_sources/new
   def new
     @rss_source = RssSource.new
@@ -37,10 +42,10 @@ class RssSourcesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /rss_sources/1
+  # PATCH/PUT /rss_sources/1                       1
   # PATCH/PUT /rss_sources/1.json
   def update
-    respond_to do |format|
+    respond_to do |format|d
       if @rss_source.update(rss_source_params)
         format.html { redirect_to @rss_source, notice: 'Rss source was successfully updated.' }
         format.json { head :no_content }

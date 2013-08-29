@@ -1,7 +1,11 @@
 Newsgrabber::Application.routes.draw do
   resources :news_items
 
-  resources :rss_sources
+  resources :rss_sources do
+    member do
+      post 'synchronize'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
