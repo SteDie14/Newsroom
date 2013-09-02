@@ -21,3 +21,5 @@ public/dispatch.fcgi
 public/assets
 
 .idea/workspace.xml
+
+config/database.yml

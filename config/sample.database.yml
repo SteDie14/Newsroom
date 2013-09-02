@@ -32,8 +32,8 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: newsgrabber_production
+  database: effectivebytes-test3
   pool: 5
-  username: root
-  password: muoha1ed
+  username: test3
+  password: Bekee0fu
   socket: /var/run/mysqld/mysqld.sock
