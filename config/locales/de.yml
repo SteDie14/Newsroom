@@ -1,4 +1,7 @@
 de:
+  time:
+    formats:
+      default: ! '%d.%m.%Y'
   date:
     abbr_day_names:
     - So
