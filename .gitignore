@@ -17,4 +17,7 @@
 
 public/dispatch.fcgi
 
+# vorkompilierte assets im production mode
+public/assets
+
 .idea/workspace.xml
