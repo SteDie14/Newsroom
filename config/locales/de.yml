@@ -223,6 +223,17 @@ de:
         title: Titel
         id: ID
         created_at: Erstellungsdatum
+      news_item:
+        id: ID
+        release_date: Datum
+        vendor: Medium
+        headline: Überschrift
+        topic: Thema
+        keywords: Schlagwörter
+        web_url: Link
+        doc_url: Dokument
+        comment: Inhalt
+        rss_source: RSS-Feed
   rss_sources:
     new:
       title: RSS-Feed erstellen
