@@ -3,5 +3,5 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  I18n.fallbacks.map('de' => 'en')
+  #I18n.fallbacks.map('de' => 'en')
 end
