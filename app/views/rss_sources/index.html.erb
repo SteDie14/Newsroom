@@ -16,7 +16,7 @@
     <% @rss_sources.each do |rss_source| %>
       <tr>
         <td><%= link_to rss_source.id, rss_source_path(rss_source) %></td>
-        <td><%= rss_source.title %></td>
+        <td><%= link_to rss_source.title, rss_source_path(rss_source) %></td>
         <!--<td><%= rss_source.url %></td>-->
         <td><%=l rss_source.created_at %></td>
         <td>
