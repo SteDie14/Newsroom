@@ -128,14 +128,24 @@ de:
         one: ! 'Konnte %{model} nicht speichern: ein Fehler.'
         other: ! 'Konnte %{model} nicht speichern: %{count} Fehler.'
   helpers:
+    label:
+      rss_source:
+        title: Titel
+        url: RSS-Feed URL
     links:
       cancel: Abbrechen
+      edit: Bearbeiten
+      destroy: entfernen
+      new: Neu
     select:
       prompt: Bitte wählen
     submit:
       create: ! '%{model} erstellen'
       submit: ! '%{model} speichern'
       update: ! '%{model} aktualisieren'
+    titles:
+      new: Neu
+    actions: Aktionen
   number:
     currency:
       format:
@@ -206,3 +216,13 @@ de:
   activerecord:
     errors:
       <<: *errors
+    models:
+      rss_source: RSS-Feed
+    attributes:
+      rss_source:
+        title: Titel
+        id: ID
+        created_at: Erstellungsdatum
+  rss_sources:
+    new:
+      title: RSS-Feed erstellen
