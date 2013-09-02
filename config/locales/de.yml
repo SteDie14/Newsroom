@@ -226,3 +226,5 @@ de:
   rss_sources:
     new:
       title: RSS-Feed erstellen
+    index:
+      title: RSS-Feeds
