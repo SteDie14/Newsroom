@@ -50,7 +50,7 @@ class RssSourcesController < ApplicationController
   # PATCH/PUT /rss_sources/1                       1
   # PATCH/PUT /rss_sources/1.json
   def update
-    respond_to do |format|d
+    respond_to do |format|
       if @rss_source.update(rss_source_params)
         format.html { redirect_to @rss_source, notice: 'Rss source was successfully updated.' }
         format.json { head :no_content }
