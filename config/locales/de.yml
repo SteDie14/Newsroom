@@ -218,7 +218,18 @@ de:
       <<: *errors
     models:
       rss_source: RSS-Feed
+      folder:
+        one: Ordner
+        other: Ordner
+        many: Ordner
+      news_item:
+        one: Meldung
+        other: Meldungen
     attributes:
+      folder:
+        title: Name
+        created_at: Erstellungsdatum
+        id: ID
       rss_source:
         title: Titel
         id: ID
