@@ -1,4 +1,6 @@
 Newsgrabber::Application.routes.draw do
+  resources :folders
+
   root 'rss_sources#index'
 
   resources :news_items
