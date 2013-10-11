@@ -49,8 +49,8 @@
           <a class="brand" href="#">Newsgrabber</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "RSS-Feeds", rss_sources_path  %></li>
-              <li><%= link_to "Nachrichten", news_items_path  %></li>
+              <li><%= link_to "RSS-Quellen", rss_sources_path  %></li>
+              <li><%= link_to "Meldungen", news_items_path  %></li>
               <li><%= link_to "Ordner", folders_path  %></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -60,19 +60,19 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Menü</li>
-              <% if defined? @rss_source %>
-              <li>
-                <%= link_to 'Nachrichten abrufen', synchronize_rss_source_url(@rss_source), :method => :post  %>
-              </li>
-              <% end %>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
+        <!--<div class="span3">-->
+          <!--<div class="well sidebar-nav">-->
+            <!--<ul class="nav nav-list">-->
+              <!--<li class="nav-header">Menü</li>-->
+              <!--<% if defined? @rss_source %>-->
+              <!--<li>-->
+                <!--<%= link_to 'Nachrichten abrufen', synchronize_rss_source_url(@rss_source), :method => :post  %>-->
+              <!--</li>-->
+              <!--<% end %>-->
+            <!--</ul>-->
+          <!--</div>&lt;!&ndash;/.well &ndash;&gt;-->
+        <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
+        <div class="span12">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
