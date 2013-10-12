@@ -12,6 +12,17 @@ class NewsItemsController < ApplicationController
   def show
   end
 
+  # Alle Meldungen (Feeds) aktualisieren.
+  def synchronize
+    rss_sources = RssSource.find_each do |rss_source|
+
+      if rss_source
+        rss_source.update_from_feed
+      end
+    end
+    return redirect_to :action => :index
+  end
+
   # GET /news_items/new
   def new
     @news_item = NewsItem.new
@@ -62,13 +73,13 @@ class NewsItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_news_item
-      @news_item = NewsItem.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_news_item
+    @news_item = NewsItem.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def news_item_params
-      params.require(:news_item).permit(:release_date, :vendor, :headline, :topic, :keywords, :web_url, :doc_url, :comment, :RssSource_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def news_item_params
+    params.require(:news_item).permit(:release_date, :vendor, :headline, :topic, :keywords, :web_url, :doc_url, :comment, :RssSource_id)
+  end
 end

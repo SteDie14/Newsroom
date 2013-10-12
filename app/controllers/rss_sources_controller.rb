@@ -12,6 +12,7 @@ class RssSourcesController < ApplicationController
   def show
   end
 
+  # @TODO: Einzeln sychronisieren wahrscheinlich nicht mehr notwenig -> löschen.
   def synchronize
     rss_source = RssSource.find(params[:id])
 

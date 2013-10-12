@@ -1,4 +1,7 @@
 Newsgrabber::Application.routes.draw do
+
+  post '/synchronize', to: 'news_items#synchronize'
+
   resources :folders
 
   root 'rss_sources#index'
