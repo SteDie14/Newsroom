@@ -1,6 +1,6 @@
 require 'feedzirra'
 class RssSource < ActiveRecord::Base
-  has_many :news_items
+  has_many :news_items, :inverse_of => :rss_source
 
   def update_from_feed
     feed = Feedzirra::Feed.fetch_and_parse(self.url)

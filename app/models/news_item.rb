@@ -1,3 +1,4 @@
 class NewsItem < ActiveRecord::Base
-  belongs_to :RssSource
+  belongs_to :rss_source, :inverse_of => :news_items
+  belongs_to :folder, :inverse_of => :news_items
 end
