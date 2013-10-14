@@ -52,6 +52,7 @@
               <li><%= link_to "RSS-Quellen", rss_sources_path  %></li>
               <li><%= link_to "Meldungen", news_items_path  %></li>
               <li><%= link_to "Ordner", folders_path  %></li>
+              <li><%= link_to t('.Nachrichten aktualisieren'), '/synchronize', :method => :post%></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
