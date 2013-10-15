@@ -1,4 +1,17 @@
 <%= form_for @news_item, :html => { :class => 'form-horizontal' } do |f| %>
+    <div class="control-group">
+      <%= f.label :folder_id, :class => 'control-label' %>
+      <div class="controls">
+        <%#= f.select(:folder_id, options_for_select(@folders,1)) %>
+        <%= collection_select(:news_item, :folder_id, Folder.all, :id, :title) %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :release_date, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :release_date, :class => 'text_field' %>
+      </div>
+    </div>
   <div class="control-group">
     <%= f.label :release_date, :class => 'control-label' %>
     <div class="controls">

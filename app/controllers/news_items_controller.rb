@@ -10,6 +10,11 @@ class NewsItemsController < ApplicationController
   # GET /news_items/1
   # GET /news_items/1.json
   def show
+    if defined? @news_item.folder.id
+      @folder_title = Folder.find(@news_item.folder_id).title
+    else
+      @folder_title = "-"
+    end
   end
 
   # Alle Meldungen (Feeds) aktualisieren.
@@ -30,6 +35,11 @@ class NewsItemsController < ApplicationController
 
   # GET /news_items/1/edit
   def edit
+    #@folder_id
+    #@folders = [['-',nil]]
+    #Folder.find_each do |folder|
+    #  @folders.append [folder.title,folder.id]
+    #end
   end
 
   # POST /news_items
@@ -80,6 +90,6 @@ class NewsItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def news_item_params
-    params.require(:news_item).permit(:release_date, :vendor, :headline, :topic, :keywords, :web_url, :doc_url, :comment, :RssSource_id)
+    params.require(:news_item).permit(:release_date, :vendor, :headline, :topic, :keywords, :web_url, :doc_url, :comment, :folder_id, :rss_source_id)
   end
 end

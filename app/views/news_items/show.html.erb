@@ -4,8 +4,10 @@
 </div>
 
 <dl class="dl-horizontal">
+  <% if defined? @news_item.release_date %>
   <dt><strong><%= model_class.human_attribute_name(:release_date) %>:</strong></dt>
   <dd><%= @news_item.release_date %></dd>
+  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
   <dd><%= @news_item.vendor %></dd>
   <dt><strong><%= model_class.human_attribute_name(:headline) %>:</strong></dt>
@@ -20,8 +22,10 @@
   <dd><%= @news_item.doc_url %></dd>
   <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
   <dd><%= @news_item.comment %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:RssSource_id) %>:</strong></dt>
-  <dd><%= @news_item.RssSource_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:rss_source_id) %>:</strong></dt>
+  <dd><%= @news_item.rss_source_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:folder_id) %>:</strong></dt>
+  <dd><%= @folder_title %></dd>
 </dl>
 
 <div class="form-actions">
