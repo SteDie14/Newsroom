@@ -1,0 +1,4 @@
+ TODO
+ =====
+
+ * News-Item show: Die Inhalte der View müssen zu den labels passen, auch wenn nicht alle Attribute gesetzt sind.
