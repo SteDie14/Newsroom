@@ -28,7 +28,7 @@
         <td><%= news_item.headline %></td>
         <!--<td><%= news_item.topic %></td>-->
         <!--<td><%= news_item.keywords %></td>-->
-        <td><%= news_item.web_url %></td>
+        <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
         <!--<td><%= news_item.doc_url %></td>-->
         <!--<td><%= news_item.comment %></td>-->
         <td><%= RssSource.find(news_item.rss_source_id).title %></td>
