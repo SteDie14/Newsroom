@@ -48,7 +48,7 @@
         <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
         <!--<td><%= news_item.doc_url %></td>-->
         <!--<td><%= news_item.comment %></td>-->
-        <td>Kategorie</td>
+        <td><%= news_item.folder ? news_item.folder.title : '-' %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_news_item_path(news_item), :class => 'btn btn-mini' %>
