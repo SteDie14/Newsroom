@@ -5,8 +5,9 @@
 <table class="table table-striped" style="background-color: #ffffff;">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <!--<th><%= model_class.human_attribute_name(:id) %></th>-->
       <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%=t('# meldungen')%></th>
       <!--<th><%= model_class.human_attribute_name(:url) %></th>-->
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -15,8 +16,9 @@
   <tbody>
     <% @rss_sources.each do |rss_source| %>
       <tr>
-        <td><%= link_to rss_source.id, rss_source_path(rss_source) %></td>
+        <!--<td><%= link_to rss_source.id, rss_source_path(rss_source) %></td>-->
         <td><%= link_to rss_source.title, rss_source_path(rss_source) %></td>
+        <td><%=NewsItem.where(:rss_source_id => rss_source.id).count%></td>
         <!--<td><%= rss_source.url %></td>-->
         <td><%=l rss_source.created_at %></td>
         <td>
