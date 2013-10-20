@@ -253,10 +253,16 @@ de:
       title: RSS-Feed erstellen
     index:
       title: RSS-Feeds
+    edit:
+      title: RSS-Feed bearbeiten
   folders:
     show:
       back: zurück
+    edit:
+      title: Kategorie bearbeiten
   news_items:
     Rss Source: quelle
     show:
       back: zurück
+    edit:
+      title: Meldung bearbeiten
