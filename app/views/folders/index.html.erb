@@ -2,10 +2,10 @@
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
-<table class="table table-striped">
+<table class="table table-striped" style="background-color: #ffffff">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <!--<th><%= model_class.human_attribute_name(:id) %></th>-->
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:ancestry) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @folders.each do |folder| %>
       <tr>
-        <td><%= link_to folder.id, folder_path(folder) %></td>
+        <!--<td><%= link_to folder.id, folder_path(folder) %></td>-->
         <td><%= folder.title_for_tree %></td>
         <td><%= folder.parent ? folder.parent.title : '-' %></td>
         <td><%=l folder.created_at %></td>
