@@ -134,7 +134,7 @@ de:
         url: RSS-Feed URL
     links:
       cancel: Abbrechen
-      edit: Bearbeiten
+      edit: bearbeiten
       destroy: entfernen
       new: Neu
     select:
@@ -230,6 +230,7 @@ de:
         title: Name
         created_at: Erstellungsdatum
         id: ID
+        ancestry: Verzeichnis
       rss_source:
         title: Titel
         id: ID
@@ -250,3 +251,6 @@ de:
       title: RSS-Feed erstellen
     index:
       title: RSS-Feeds
+  folders:
+    show:
+      back: zurück

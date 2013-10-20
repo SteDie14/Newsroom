@@ -7,6 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:ancestry) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -15,7 +16,8 @@
     <% @folders.each do |folder| %>
       <tr>
         <td><%= link_to folder.id, folder_path(folder) %></td>
-        <td><%= folder.title %></td>
+        <td><%= folder.title_for_tree %></td>
+        <td><%= folder.parent ? folder.parent.title : '-' %></td>
         <td><%=l folder.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

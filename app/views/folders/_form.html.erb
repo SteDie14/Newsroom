@@ -5,6 +5,12 @@
       <%= f.text_field :title, :class => 'text_field' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :ancestry, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :parent_id, Folder.arrange_as_array({:order => 'title'}, @folder.possible_parents), :id, :title_for_selects, :include_blank => true %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
