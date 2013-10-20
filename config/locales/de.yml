@@ -245,7 +245,7 @@ de:
         web_url: Link
         doc_url: Dokument
         comment: Inhalt
-        rss_source: RSS-Feed
+        rss_source_id: RSS-Feed
   rss_sources:
     new:
       title: RSS-Feed erstellen
@@ -254,3 +254,5 @@ de:
   folders:
     show:
       back: zurück
+  news_items:
+    Rss Source: quelle

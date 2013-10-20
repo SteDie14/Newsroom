@@ -14,7 +14,7 @@
       <th><%= model_class.human_attribute_name(:web_url) %></th>
       <!--<th><%= model_class.human_attribute_name(:doc_url) %></th>-->
       <!--<th><%= model_class.human_attribute_name(:comment) %></th>-->
-      <th><%= model_class.human_attribute_name(:RssSource_id) %></th>
+      <th><%= model_class.human_attribute_name(:rss_source_id) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -31,7 +31,7 @@
         <td><%= news_item.web_url %></td>
         <!--<td><%= news_item.doc_url %></td>-->
         <!--<td><%= news_item.comment %></td>-->
-        <td><%= news_item.rss_source_id %></td>
+        <td><%= RssSource.find(news_item.rss_source_id).title %></td>
         <td><%=l news_item.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
