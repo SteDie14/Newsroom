@@ -6,16 +6,23 @@
   <thead>
     <tr>
       <!--<th><%= model_class.human_attribute_name(:id) %></th>-->
-      <th><%= model_class.human_attribute_name(:release_date) %></th>
+      <th>
+        <%= model_class.human_attribute_name(:release_date) %>
+        <br />
+        <%= model_class.human_attribute_name(:created_at) %>
+      </th>
       <!--<th><%= model_class.human_attribute_name(:vendor) %></th>-->
-      <th><%= model_class.human_attribute_name(:headline) %></th>
+      <th>
+        <%= model_class.human_attribute_name(:rss_source_id) %>
+        <br />
+        <%= model_class.human_attribute_name(:headline) %>
+      </th>
       <!--<th><%= model_class.human_attribute_name(:topic) %></th>-->
       <!--<th><%= model_class.human_attribute_name(:keywords) %></th>-->
       <th><%= model_class.human_attribute_name(:web_url) %></th>
       <!--<th><%= model_class.human_attribute_name(:doc_url) %></th>-->
       <!--<th><%= model_class.human_attribute_name(:comment) %></th>-->
-      <th><%= model_class.human_attribute_name(:rss_source_id) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Ordner</th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -23,16 +30,23 @@
     <% @news_items.each do |news_item| %>
       <tr>
         <!--<td><%= link_to news_item.id, news_item_path(news_item) %></td>-->
-        <td><%= link_to news_item.release_date, news_item_path(news_item) %></td>
+        <td>
+          <%= link_to news_item.release_date, news_item_path(news_item) %>
+          <br />
+          <%=l news_item.created_at %>
+        </td>
         <!--<td><%= news_item.vendor %></td>-->
-        <td><%= news_item.headline %></td>
+        <td>
+          <strong><%= RssSource.find(news_item.rss_source_id).title %></strong>
+          <br />
+          <%= news_item.headline %>
+        </td>
         <!--<td><%= news_item.topic %></td>-->
         <!--<td><%= news_item.keywords %></td>-->
         <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
         <!--<td><%= news_item.doc_url %></td>-->
         <!--<td><%= news_item.comment %></td>-->
-        <td><%= RssSource.find(news_item.rss_source_id).title %></td>
-        <td><%=l news_item.created_at %></td>
+        <td>Ordner</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_news_item_path(news_item), :class => 'btn btn-mini' %>
