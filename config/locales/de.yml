@@ -255,6 +255,8 @@ de:
       title: RSS-Feeds
     edit:
       title: RSS-Feed bearbeiten
+    show:
+      back: zurück
   folders:
     show:
       back: zurück
