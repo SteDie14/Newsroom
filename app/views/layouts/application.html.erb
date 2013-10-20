@@ -46,12 +46,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Newsgrabber</a>
+          <a class="brand" href="/">Newsgrabber</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "RSS-Quellen", rss_sources_path  %></li>
               <li><%= link_to "Meldungen", news_items_path  %></li>
-              <li><%= link_to "Ordner", folders_path  %></li>
+              <li><%= link_to "Kategorien verwalten", folders_path  %></li>
               <li><%= link_to t('.Nachrichten aktualisieren'), '/synchronize', :method => :post%></li>
             </ul>
           </div><!--/.nav-collapse -->

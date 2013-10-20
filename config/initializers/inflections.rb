@@ -16,6 +16,6 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.irregular 'Ordner', 'Ordner'
+  inflect.irregular 'Kategorie', 'Kategorien'
   inflect.irregular 'Meldung', 'Meldungen'
 end

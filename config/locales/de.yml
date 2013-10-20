@@ -219,9 +219,9 @@ de:
     models:
       rss_source: RSS-Feed
       folder:
-        one: Ordner
-        other: Ordner
-        many: Ordner
+        one: Kategorie
+        other: Kategorien
+        many: Kategorien
       news_item:
         one: Meldung
         other: Meldungen
@@ -230,7 +230,7 @@ de:
         title: Name
         created_at: Erstellungsdatum
         id: ID
-        ancestry: Verzeichnis
+        ancestry: Oberkategorie
       rss_source:
         title: Titel
         id: ID
@@ -247,6 +247,7 @@ de:
         doc_url: Dokument
         comment: Inhalt
         rss_source_id: RSS-Feed
+        folder_id: Kategorie
   rss_sources:
     new:
       title: RSS-Feed erstellen

@@ -22,7 +22,9 @@
       <th><%= model_class.human_attribute_name(:web_url) %></th>
       <!--<th><%= model_class.human_attribute_name(:doc_url) %></th>-->
       <!--<th><%= model_class.human_attribute_name(:comment) %></th>-->
-      <th>Ordner</th>
+      <th>
+        <%= model_class.human_attribute_name(:folder_id) %>
+      </th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -31,7 +33,7 @@
       <tr>
         <!--<td><%= link_to news_item.id, news_item_path(news_item) %></td>-->
         <td>
-          <%= link_to news_item.release_date, news_item_path(news_item) %>
+          <strong><%= link_to news_item.release_date, news_item_path(news_item) %></strong>
           <br />
           <%=l news_item.created_at %>
         </td>
@@ -46,10 +48,11 @@
         <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
         <!--<td><%= news_item.doc_url %></td>-->
         <!--<td><%= news_item.comment %></td>-->
-        <td>Ordner</td>
+        <td>Kategorie</td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_news_item_path(news_item), :class => 'btn btn-mini' %>
+          <br />
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       news_item_path(news_item),
                       :method => :delete,
