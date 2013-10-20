@@ -4,7 +4,20 @@ class NewsItemsController < ApplicationController
   # GET /news_items
   # GET /news_items.json
   def index
-    @news_items = NewsItem.all
+    @selected_folder = 0
+    news_items = nil
+    if defined? params[:folder][:folder_id]
+      unless params[:folder][:folder_id].nil? || params[:folder][:folder_id].empty?
+        news_items = NewsItem.where(:folder_id => Folder.find(params[:folder][:folder_id]).subtree_ids).all
+        @selected_folder = params[:folder][:folder_id]
+      end
+    end
+
+    if news_items.nil?
+      news_items = NewsItem.all
+    end
+
+    @news_items = news_items
   end
 
   # GET /news_items/1
