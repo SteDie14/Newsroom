@@ -27,7 +27,9 @@ module Tree
 
       hash.each do |node, children|
         arr << node
-        arr += arrange_as_array(options, children) unless children.nil?
+        unless node.depth >= 1
+          arr += arrange_as_array(options, children) unless children.nil?
+        end
       end
       arr
     end
