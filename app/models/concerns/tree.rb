@@ -20,14 +20,14 @@ module Tree
   end
 
   module ClassMethods
-    def arrange_as_array(options={}, hash=nil)
+    def arrange_as_array(options={}, hash=nil, max_depth = 1)
       hash ||= arrange(options) unless hash.is_a? Array
 
       arr = []
 
       hash.each do |node, children|
         arr << node
-        unless node.depth >= 1
+        unless node.depth >= max_depth
           arr += arrange_as_array(options, children) unless children.nil?
         end
       end
