@@ -23,6 +23,7 @@
         <br />
         <%= model_class.human_attribute_name(:created_at) %>
       </th>
+      <th>Pro / Contra</th>
       <th>
         <%= model_class.human_attribute_name(:folder_id) %>
       </th>
@@ -49,6 +50,14 @@
           <strong><%= link_to news_item.release_date, news_item_path(news_item) %></strong>
           <br />
           <%=l news_item.created_at %>
+        </td>
+        <td>
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="icon-thumbs-up"></span> Pro
+          </button>
+          <button type="button" class="btn btn-default btn-lg">
+            <span class="icon-thumbs-down"></span> Contra
+          </button>
         </td>
         <td>
           <strong><%= news_item.folder ? news_item.folder.title : '-' %></strong>
