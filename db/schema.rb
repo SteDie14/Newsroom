@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019184358) do
+ActiveRecord::Schema.define(version: 20131109170023) do
 
   create_table "folders", force: true do |t|
     t.string   "title"
@@ -37,11 +37,25 @@ ActiveRecord::Schema.define(version: 20131019184358) do
     t.string   "guid"
     t.text     "summary"
     t.integer  "folder_id"
+    t.integer  "tag_contra_id"
+    t.integer  "tag_pro_id"
   end
 
   create_table "rss_sources", force: true do |t|
     t.string   "title"
     t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tag_contras", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tag_pros", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
