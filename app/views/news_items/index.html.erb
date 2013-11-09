@@ -14,7 +14,8 @@
     <%=submit_tag 'Filtern'%>
   <% end %>
 </div>
-<table class="table table-striped" style="background-color: #ffffff;">
+<%= form_tag update_multiple_news_items_path, :method => :put do |ft|%>
+	<table class="table table-striped" style="background-color: #ffffff;">
   <thead>
     <tr>
       <!--<th><%= model_class.human_attribute_name(:id) %></th>-->
@@ -23,7 +24,8 @@
         <br />
         <%= model_class.human_attribute_name(:created_at) %>
       </th>
-      <th>Pro / Contra</th>
+      <th>Pro</th>
+			<th>Contra</th>
       <th>
         <%= model_class.human_attribute_name(:folder_id) %>
       </th>
@@ -52,13 +54,19 @@
           <%=l news_item.created_at %>
         </td>
         <td>
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="icon-thumbs-up"></span> Pro
-          </button>
-          <button type="button" class="btn btn-default btn-lg">
-            <span class="icon-thumbs-down"></span> Contra
-          </button>
+					<div class="control-group">
+						<div class="controls">
+							<%= text_field_tag "tag_pro[]",  :value => "Pro"  %>
+						</div>
+					</div>
         </td>
+				<td>
+					<div class="control-group">
+						<div class="controls">
+							<%= text_field :tag_contra, :class => 'text_field' %>
+						</div>
+					</div>
+				</td>
         <td>
           <strong><%= news_item.folder ? news_item.folder.title : '-' %></strong>
         </td>
@@ -88,5 +96,5 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <%#= link_to t('.new', :default => t("helpers.links.new")), new_news_item_path, :class => 'btn btn-primary' %>

@@ -6,7 +6,11 @@ Newsgrabber::Application.routes.draw do
 
   root 'news_items#index'
 
-  resources :news_items
+  resources :news_items do
+    collection do
+      put 'update_multiple'
+    end
+  end
 
   resources :rss_sources do
     member do
