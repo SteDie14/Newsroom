@@ -24,22 +24,21 @@
         <br />
         <%= model_class.human_attribute_name(:created_at) %>
       </th>
-      <th>Pro</th>
-			<th>Contra</th>
+      <th>
+				Pro
+			</th>
+			<th>
+				Contra
+			</th>
       <th>
         <%= model_class.human_attribute_name(:folder_id) %>
       </th>
-      <!--<th><%= model_class.human_attribute_name(:vendor) %></th>-->
       <th>
         <%= model_class.human_attribute_name(:rss_source_id) %>
         <br />
         <%= model_class.human_attribute_name(:headline) %>
       </th>
-      <!--<th><%= model_class.human_attribute_name(:topic) %></th>-->
-      <!--<th><%= model_class.human_attribute_name(:keywords) %></th>-->
       <th><%= model_class.human_attribute_name(:web_url) %></th>
-      <!--<th><%= model_class.human_attribute_name(:doc_url) %></th>-->
-      <!--<th><%= model_class.human_attribute_name(:comment) %></th>-->
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -54,16 +53,16 @@
           <%=l news_item.created_at %>
         </td>
         <td>
-					<div class="control-group">
+					<!--<div class="control-group">-->
 						<div class="controls">
-							<%= text_field_tag "tag_pro[]",  :value => "Pro"  %>
+							<%= text_field_tag "news_items["+news_item.id.to_s+"][tag_pro]", (defined?(news_item.tag_pro.name) ? news_item.tag_pro.name : " "), :class => "input-small" %>
 						</div>
-					</div>
+					<!--</div>-->
         </td>
 				<td>
 					<div class="control-group">
 						<div class="controls">
-							<%= text_field :tag_contra, :class => 'text_field' %>
+							<%= text_field_tag "news_items["+news_item.id.to_s+"][tag_contra]", (defined?(news_item.tag_contra.name) ? news_item.tag_contra.name : " "), :class => "input-small" %>
 						</div>
 					</div>
 				</td>
@@ -96,5 +95,6 @@
     <% end %>
   </tbody>
 </table>
+	<%= submit_tag "Speichern" %>
 <% end %>
 <%#= link_to t('.new', :default => t("helpers.links.new")), new_news_item_path, :class => 'btn btn-primary' %>

@@ -85,6 +85,26 @@ class NewsItemsController < ApplicationController
     end
   end
 
+  def update_multiple
+    unless defined? params['news_items']
+      return redirect_to news_items_url, :notice => 'Keine zu speichernden Werte.'
+    end
+
+    params['news_items'].each do | news_item_id, news_item_values |
+      unless "" == news_item_values['tag_pro'].strip
+        news_item = NewsItem.find(news_item_id)
+        news_item.tag_pro = TagPro.find_or_create_by(:name =>news_item_values['tag_pro'].strip)
+        news_item.save
+      end
+      unless "" == news_item_values['tag_contra'].strip
+        news_item = NewsItem.find(news_item_id)
+        news_item.tag_contra = TagContra.find_or_create_by(:name =>news_item_values['tag_contra'].strip)
+        news_item.save
+      end
+    end
+    redirect_to news_items_url, :notice => 'Pro / Contra erfolgreich gespeichert.'
+  end
+
   # DELETE /news_items/1
   # DELETE /news_items/1.json
   def destroy
