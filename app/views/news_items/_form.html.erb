@@ -1,11 +1,17 @@
 <%= form_for @news_item, :html => { :class => 'form-horizontal' } do |f| %>
-    <div class="control-group">
-      <%= f.label :folder_id, :class => 'control-label' %>
-      <div class="controls">
+    <!--<div class="control-group">-->
+      <%#= f.label :folder_id, :class => 'control-label' %>
+      <!--<div class="controls">-->
         <%#= f.select(:folder_id, options_for_select(@folders,1)) %>
-        <%= f.collection_select :folder_id, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-      </div>
-    </div>
+        <%#= f.collection_select :folder_id, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+      <!--</div>-->
+    <!--</div>-->
+		<div class="control-group">
+			<%= label_tagKategorie 1
+			<div class="controls">
+				<%= select_tag("news_item[folder_ids][]", options_from_collection_for_select(Folder.all, :id,:title))%>
+			</div>
+		</div>
     <div class="control-group">
       <%= f.label :release_date, :class => 'control-label' %>
       <div class="controls">

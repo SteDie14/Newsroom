@@ -67,7 +67,15 @@
 					</div>
 				</td>
         <td>
-          <strong><%= news_item.folder ? news_item.folder.title : '-' %></strong>
+          <strong>
+						<%
+							 folders_list = []
+							 news_item.folders.each do |folder|
+								folders_list << folder.title
+							 end
+							 puts folders_list.join(',')
+						%>
+					</strong>
         </td>
         <!--<td><%= news_item.vendor %></td>-->
         <td>

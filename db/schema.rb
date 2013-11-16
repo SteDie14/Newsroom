@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109170023) do
+ActiveRecord::Schema.define(version: 20131116133812) do
 
   create_table "folders", force: true do |t|
     t.string   "title"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20131109170023) do
   end
 
   add_index "folders", ["ancestry"], name: "index_folders_on_ancestry", using: :btree
+
+  create_table "folders_news_items", force: true do |t|
+    t.integer "folder_id"
+    t.integer "news_item_id"
+  end
 
   create_table "news_items", force: true do |t|
     t.date     "release_date"
@@ -36,7 +41,6 @@ ActiveRecord::Schema.define(version: 20131109170023) do
     t.datetime "updated_at"
     t.string   "guid"
     t.text     "summary"
-    t.integer  "folder_id"
     t.integer  "tag_contra_id"
     t.integer  "tag_pro_id"
   end
