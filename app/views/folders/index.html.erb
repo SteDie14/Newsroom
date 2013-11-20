@@ -18,7 +18,7 @@
       <tr>
         <!--<td><%= link_to folder.id, folder_path(folder) %></td>-->
         <td><%= folder.title_for_tree %></td>
-        <td><strong><%=NewsItem.where(:folder_id => folder.subtree_ids).count() %></strong></td>
+        <td><strong><%#=NewsItem.where(:folder_id => folder.subtree_ids).count() %></strong></td>
         <td><%= folder.parent ? folder.parent.title : '-' %></td>
         <td><%=l folder.created_at %></td>
         <td>

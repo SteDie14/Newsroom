@@ -1,82 +1,100 @@
-<%= form_for @news_item, :html => { :class => 'form-horizontal' } do |f| %>
-    <!--<div class="control-group">-->
+<%= form_for @news_item, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="control-group">
       <%#= f.label :folder_id, :class => 'control-label' %>
-      <!--<div class="controls">-->
-        <%#= f.select(:folder_id, options_for_select(@folders,1)) %>
-        <%#= f.collection_select :folder_id, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-      <!--</div>-->
-    <!--</div>-->
-		<div class="control-group">
-			<%= label_tagKategorie 1
-			<div class="controls">
-				<%= select_tag("news_item[folder_ids][]", options_from_collection_for_select(Folder.all, :id,:title))%>
-			</div>
-		</div>
+      <%= label_tag "Kategorie 1", nil, class: 'control-label' %>
+      <div class="controls">
+        <%#= f.collection_select "news_item", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%= collection_select :news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%#=select_tag "news_item[folder_ids][]"%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%#= f.label :folder_id, :class => 'control-label' %>
+      <%= label_tag "Kategorie 2", nil, class: 'control-label' %>
+      <div class="controls">
+        <%#= f.collection_select :folders, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%#= collection_select @news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%= collection_select :news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%#=select_tag "news_item[folder_ids][]"%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%#= f.label :folder_id, :class => 'control-label' %>
+      <%= label_tag "Kategorie 3", nil, class: 'control-label' %>
+      <div class="controls">
+        <%#= f.collection_select :folders, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%= collection_select :news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
+        <%#=select_tag "news_item[folder_ids][]"%>
+      </div>
+    </div>
+
     <div class="control-group">
       <%= f.label :release_date, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :release_date, :class => 'text_field' %>
       </div>
     </div>
-  <div class="control-group">
-    <%= f.label :release_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :release_date, :class => 'text_field' %>
+    <div class="control-group">
+      <%= f.label :release_date, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :release_date, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
-  <!--<div class="control-group">-->
+    <!--<div class="control-group">-->
     <!--<%= f.label :vendor, :class => 'control-label' %>-->
     <!--<div class="controls">-->
-      <!--<%= f.text_field :vendor, :class => 'text_field' %>-->
+    <!--<%= f.text_field :vendor, :class => 'text_field' %>-->
     <!--</div>-->
-  <!--</div>-->
-  <div class="control-group">
-    <%= f.label :headline, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :headline, :class => 'text_field' %>
+    <!--</div>-->
+    <div class="control-group">
+      <%= f.label :headline, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :headline, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
-  <!--<div class="control-group">-->
+    <!--<div class="control-group">-->
     <!--<%= f.label :topic, :class => 'control-label' %>-->
     <!--<div class="controls">-->
-      <!--<%= f.text_field :topic, :class => 'text_field' %>-->
+    <!--<%= f.text_field :topic, :class => 'text_field' %>-->
     <!--</div>-->
-  <!--</div>-->
-  <!--<div class="control-group">-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
     <!--<%= f.label :keywords, :class => 'control-label' %>-->
     <!--<div class="controls">-->
-      <!--<%= f.text_field :keywords, :class => 'text_field' %>-->
+    <!--<%= f.text_field :keywords, :class => 'text_field' %>-->
     <!--</div>-->
-  <!--</div>-->
-  <div class="control-group">
-    <%= f.label :web_url, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :web_url, :class => 'text_field' %>
+    <!--</div>-->
+    <div class="control-group">
+      <%= f.label :web_url, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :web_url, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
-  <!--<div class="control-group">-->
+    <!--<div class="control-group">-->
     <!--<%= f.label :doc_url, :class => 'control-label' %>-->
     <!--<div class="controls">-->
-      <!--<%= f.text_field :doc_url, :class => 'text_field' %>-->
+    <!--<%= f.text_field :doc_url, :class => 'text_field' %>-->
     <!--</div>-->
-  <!--</div>-->
-  <!--<div class="control-group">-->
+    <!--</div>-->
+    <!--<div class="control-group">-->
     <!--<%= f.label :comment, :class => 'control-label' %>-->
     <!--<div class="controls">-->
-      <!--<%= f.text_field :comment, :class => 'text_field' %>-->
+    <!--<%= f.text_field :comment, :class => 'text_field' %>-->
     <!--</div>-->
-  <!--</div>-->
-  <div class="control-group">
-    <%= f.label :rss_source_id, :class => 'control-label' %>
-    <div class="controls">
-      <p style="margin-top:5px;"><strong><%= @news_item.rss_source.title %></strong></p>
-      <%#= f.text_field :rss_source_id, :class => 'text_field' %>
+    <!--</div>-->
+    <div class="control-group">
+      <%= f.label :rss_source_id, :class => 'control-label' %>
+      <div class="controls">
+        <p style="margin-top:5px;"><strong><%= @news_item.rss_source.title %></strong></p>
+        <%#= f.text_field :rss_source_id, :class => 'text_field' %>
+      </div>
     </div>
-  </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                news_items_path, :class => 'btn' %>
-  </div>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  news_items_path, :class => 'btn' %>
+    </div>
 <% end %>
