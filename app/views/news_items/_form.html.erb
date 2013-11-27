@@ -1,11 +1,8 @@
 <%= form_for @news_item, :html => {:class => 'form-horizontal'} do |f| %>
     <div class="control-group">
-      <%#= f.label :folder_id, :class => 'control-label' %>
       <%= label_tag "Kategorie 1", nil, class: 'control-label' %>
       <div class="controls">
-        <%#= f.collection_select "news_item", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%= collection_select :news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%#=select_tag "news_item[folder_ids][]"%>
+        <%= select_tag "news_item[folder_ids][1]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title) %>
       </div>
     </div>
 
@@ -13,10 +10,7 @@
       <%#= f.label :folder_id, :class => 'control-label' %>
       <%= label_tag "Kategorie 2", nil, class: 'control-label' %>
       <div class="controls">
-        <%#= f.collection_select :folders, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%#= collection_select @news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%= collection_select :news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%#=select_tag "news_item[folder_ids][]"%>
+        <%= select_tag "news_item[folder_ids][2]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title) %>
       </div>
     </div>
 
@@ -24,9 +18,7 @@
       <%#= f.label :folder_id, :class => 'control-label' %>
       <%= label_tag "Kategorie 3", nil, class: 'control-label' %>
       <div class="controls">
-        <%#= f.collection_select :folders, Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%= collection_select :news_item, "folder_ids[]", Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title_for_selects, :include_blank => true %>
-        <%#=select_tag "news_item[folder_ids][]"%>
+        <%= select_tag "news_item[folder_ids][3]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(Folder.arrange_as_array({:order => 'title'}, Folder.all, 99), :id, :title) %>
       </div>
     </div>
 

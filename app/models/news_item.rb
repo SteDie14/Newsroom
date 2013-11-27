@@ -4,7 +4,7 @@ class NewsItem < ActiveRecord::Base
   belongs_to :tag_pro, :inverse_of => :news_items
   belongs_to :tag_contra, :inverse_of => :news_items
 
-  #def update (params)
-  #  puts "test"
-  #end
+  def update (params)
+    puts "test"
+  end
 end

@@ -32,7 +32,7 @@ class NewsItemsController < ApplicationController
 
   # Alle Meldungen (Feeds) aktualisieren.
   def synchronize
-    rss_sources = RssSource.find_each do |rss_source|
+    RssSource.find_each do |rss_source|
 
       if rss_source
         rss_source.update_from_feed
@@ -90,15 +90,15 @@ class NewsItemsController < ApplicationController
       return redirect_to news_items_url, :notice => 'Keine zu speichernden Werte.'
     end
 
-    params['news_items'].each do | news_item_id, news_item_values |
+    params['news_items'].each do |news_item_id, news_item_values|
       unless "" == news_item_values['tag_pro'].strip
         news_item = NewsItem.find(news_item_id)
-        news_item.tag_pro = TagPro.find_or_create_by(:name =>news_item_values['tag_pro'].strip)
+        news_item.tag_pro = TagPro.find_or_create_by(:name => news_item_values['tag_pro'].strip)
         news_item.save
       end
       unless "" == news_item_values['tag_contra'].strip
         news_item = NewsItem.find(news_item_id)
-        news_item.tag_contra = TagContra.find_or_create_by(:name =>news_item_values['tag_contra'].strip)
+        news_item.tag_contra = TagContra.find_or_create_by(:name => news_item_values['tag_contra'].strip)
         news_item.save
       end
     end
@@ -123,6 +123,18 @@ class NewsItemsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def news_item_params
-    params.require(:news_item).permit(:release_date, :vendor, :headline, :topic, :keywords, :web_url, :doc_url, :comment, :folder_id, :rss_source_id)
+    params.require(:news_item).permit(
+        :release_date,
+        :vendor,
+        :headline,
+        :topic,
+        :keywords,
+        :web_url,
+        :doc_url,
+        :comment,
+        :folder_id,
+        :folder_ids,
+        :rss_source_id
+    )
   end
 end

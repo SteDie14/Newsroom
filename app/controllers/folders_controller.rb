@@ -28,8 +28,8 @@ class FoldersController < ApplicationController
 
     respond_to do |format|
       if @folder.save
-        format.html { redirect_to @folder, notice: 'Folder was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @folder }
+        format.html { redirect_to folders_url, notice: 'Folder was successfully created.' }
+        format.json { render action: 'index', status: :created, location: @folder }
       else
         format.html { render action: 'new' }
         format.json { render json: @folder.errors, status: :unprocessable_entity }

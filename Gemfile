@@ -33,6 +33,12 @@ gem 'therubyracer'
 gem 'less-rails'
 
 
+group :development, :test do
+  gem 'cucumber-rails', :require => false
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
