@@ -71,6 +71,10 @@ class NewsItemsController < ApplicationController
     end
   end
 
+  def keywords
+
+  end
+
   # PATCH/PUT /news_items/1
   # PATCH/PUT /news_items/1.json
   def update

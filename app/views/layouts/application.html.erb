@@ -53,6 +53,7 @@
               <li><%= link_to "Meldungen", news_items_path  %></li>
               <li><%= link_to "Kategorien verwalten", folders_path  %></li>
               <li style="font-weight:bold;"><%= link_to t('.Meldungen aktualisieren'), '/synchronize', :method => :post%></li>
+              <li><%= link_to t("Schlagworte"), '/keywords', :method => :get %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

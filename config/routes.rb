@@ -2,6 +2,8 @@ Newsgrabber::Application.routes.draw do
 
   post '/synchronize', to: 'news_items#synchronize'
 
+  get '/keywords', to: 'news_items#keywords'
+
   resources :folders
 
   root 'news_items#index'
