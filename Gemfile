@@ -36,6 +36,7 @@ gem 'less-rails'
 group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails'
+  gem 'simplecov'
   gem 'database_cleaner'
 end
 

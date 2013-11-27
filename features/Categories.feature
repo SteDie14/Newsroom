@@ -10,3 +10,6 @@ Feature: administer Categories
     Then I should be on the "categories list" path
     And I see a success notice
     And I see the newest Category
+
+  Scenario: User categorizes a NewsItem
+    Given I visit the folders overview page.
