@@ -1,6 +1,6 @@
 <%- model_class = NewsItem -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <div id="filter">
   <%= form_tag news_items_path, :method => :get do %>
@@ -11,98 +11,92 @@
           <%= collection_select(:folder, :folder_id, folders, :id, :title_for_selects, :selected => @selected_folder, :include_blank => true) %>
         </div>
       </div>
-    <%=submit_tag 'Filtern'%>
-  <% end %>
+      <%= submit_tag 'Filtern' %>
+<% end %>
 </div>
-<%= form_tag update_multiple_news_items_path, :method => :put do |ft|%>
-	<table class="table table-striped" style="background-color: #ffffff;">
-  <thead>
-    <tr>
-      <!--<th><%= model_class.human_attribute_name(:id) %></th>-->
-      <th>
-        <%= model_class.human_attribute_name(:release_date) %>
-        <br />
-        <%= model_class.human_attribute_name(:created_at) %>
-      </th>
-      <th>
-				Pro
-			</th>
-			<th>
-				Contra
-			</th>
-      <th>
-        <%= model_class.human_attribute_name(:folder_id) %>
-      </th>
-      <th>
-        <%= model_class.human_attribute_name(:rss_source_id) %>
-        <br />
-        <%= model_class.human_attribute_name(:headline) %>
-      </th>
-      <th><%= model_class.human_attribute_name(:web_url) %></th>
-
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @news_items.each do |news_item| %>
+<%= form_tag update_multiple_news_items_path, :method => :put do |ft| %>
+    <table class="table table-striped" style="background-color: #ffffff;">
+      <thead>
       <tr>
-        <!--<td><%= link_to news_item.id, news_item_path(news_item) %></td>-->
-        <td>
-          <strong><%= link_to news_item.release_date, news_item_path(news_item) %></strong>
-          <br />
-          <%=l news_item.created_at %>
-        </td>
-        <td>
-					<!--<div class="control-group">-->
-						<div class="controls">
-							<%= text_field_tag "news_items["+news_item.id.to_s+"][tag_pro]", (defined?(news_item.tag_pro.name) ? news_item.tag_pro.name : " "), :class => "input-small" %>
-						</div>
-					<!--</div>-->
-        </td>
-				<td>
-					<div class="control-group">
-						<div class="controls">
-							<%= text_field_tag "news_items["+news_item.id.to_s+"][tag_contra]", (defined?(news_item.tag_contra.name) ? news_item.tag_contra.name : " "), :class => "input-small" %>
-						</div>
-					</div>
-				</td>
-        <td>
-          <strong>
-						<%
-							 folders_list = []
-							 news_item.folders.each do |folder|
-								folders_list << folder.title
-							 end
-							 puts folders_list.join(',')
-						%>
-					</strong>
-        </td>
-        <!--<td><%= news_item.vendor %></td>-->
-        <td>
-          <strong><%= RssSource.find(news_item.rss_source_id).title %></strong>
-          <br />
-          <%= news_item.headline %>
-        </td>
-        <!--<td><%= news_item.topic %></td>-->
-        <!--<td><%= news_item.keywords %></td>-->
-        <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
-        <!--<td><%= news_item.doc_url %></td>-->
-        <!--<td><%= news_item.comment %></td>-->
+        <!--<th><%= model_class.human_attribute_name(:id) %></th>-->
+        <th>
+          <%= model_class.human_attribute_name(:release_date) %>
+          <br/>
+          <%= model_class.human_attribute_name(:created_at) %>
+        </th>
+        <th>
+          Pro
+        </th>
+        <th>
+          Contra
+        </th>
+        <th>
+          <%= model_class.human_attribute_name(:folders) %>
+        </th>
+        <th>
+          <%= model_class.human_attribute_name(:rss_source_id) %>
+          <br/>
+          <%= model_class.human_attribute_name(:headline) %>
+        </th>
+        <th><%= model_class.human_attribute_name(:web_url) %></th>
 
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_news_item_path(news_item), :class => 'btn btn-mini' %>
-          <br />
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      news_item_path(news_item),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
+        <th><%= t '.actions', :default => t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-	<%= submit_tag "Speichern" %>
+      </thead>
+      <tbody>
+      <% @news_items.each do |news_item| %>
+          <tr>
+            <!--<td><%= link_to news_item.id, news_item_path(news_item) %></td>-->
+            <td>
+              <strong><%= link_to news_item.release_date, news_item_path(news_item) %></strong>
+              <br/>
+              <%= l news_item.created_at %>
+            </td>
+            <td>
+              <!--<div class="control-group">-->
+              <div class="controls">
+                <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_pro]", (defined?(news_item.tag_pro.name) ? news_item.tag_pro.name : " "), :class => "input-small" %>
+              </div>
+              <!--</div>-->
+            </td>
+            <td>
+              <div class="control-group">
+                <div class="controls">
+                  <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_contra]", (defined?(news_item.tag_contra.name) ? news_item.tag_contra.name : " "), :class => "input-small" %>
+                </div>
+              </div>
+            </td>
+            <td>
+              <strong>
+                <%= news_item.folders.collect { |folder| folder.title }.join(", ") %>
+              </strong>
+            </td>
+            <!--<td><%= news_item.vendor %></td>-->
+            <td>
+              <strong><%= RssSource.find(news_item.rss_source_id).title %></strong>
+              <br/>
+              <%= news_item.headline %>
+            </td>
+            <!--<td><%= news_item.topic %></td>-->
+            <!--<td><%= news_item.keywords %></td>-->
+            <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
+            <!--<td><%= news_item.doc_url %></td>-->
+            <!--<td><%= news_item.comment %></td>-->
+
+            <td>
+              <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                          edit_news_item_path(news_item), :class => 'btn btn-mini' %>
+              <br/>
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                          news_item_path(news_item),
+                          :method => :delete,
+                          :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+                          :class => 'btn btn-mini btn-danger' %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <%= submit_tag "Speichern" %>
 <% end %>
 <%#= link_to t('.new', :default => t("helpers.links.new")), new_news_item_path, :class => 'btn btn-primary' %>
