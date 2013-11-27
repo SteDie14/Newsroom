@@ -72,7 +72,8 @@ class NewsItemsController < ApplicationController
   end
 
   def keywords
-
+    @pro_tags = TagPro.names_with_counts.all
+    @contra_tags = TagContra.names_with_counts
   end
 
   # PATCH/PUT /news_items/1

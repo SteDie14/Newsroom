@@ -2,37 +2,57 @@
   <h1><%= t("Schlagworte") %></h1>
 </div>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th>
-      <%= t("Anzahl") %>
-    </th>
-    <th>
-      <%= t("Schlagwort") %>
-    </th>
-    <th>
-      <%= t("Pro") %>
-    </th>
-    <th>
-      <%= t("Contra") %>
-    </th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      Anzahl
-    </td>
-    <td>
-      Schlagwort
-    </td>
-    <td>
-      Pro
-    </td>
-    <td>
-      Contra
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="span5">
+  <h4><%= t("Pro") %></h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>
+        <%= t("Anzahl Meldungen") %>
+      </th>
+      <th>
+        <%= t("Schlagwort") %>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @pro_tags.each do |pro_tag| %>
+        <tr>
+          <td>
+            <%= pro_tag.tag_count %>
+          </td>
+          <td>
+            <%= pro_tag.name %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="span5">
+  <h4><%= t("Contra") %></h4>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>
+        <%= t("Anzahl") %>
+      </th>
+      <th>
+        <%= t("Schlagwort") %>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @contra_tags.each do |contra_tag| %>
+        <tr>
+          <td>
+            <%= contra_tag.tag_count %>
+          </td>
+          <td>
+            <%= contra_tag.name %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
