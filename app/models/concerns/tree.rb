@@ -6,11 +6,11 @@ module Tree
     has_ancestry
 
     def title_for_selects
-      "#{'|' if depth > 0}" + "#{'---' * depth} #{title}"
+      "#{'|' if self.depth > 0}" + "#{'---' * self.depth} #{title}"
     end
 
     def title_for_tree
-    "<span class='tree_#{depth}'>#{title}</span>".html_safe
+      "<span class='tree_#{self.depth}'>#{title}</span>".html_safe
     end
 
     def possible_parents
