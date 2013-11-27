@@ -9,4 +9,5 @@ class NewsItem < ActiveRecord::Base
     self.folder_ids = folder_ids
     self.save
   end
+
 end
