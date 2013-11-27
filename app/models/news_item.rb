@@ -5,6 +5,8 @@ class NewsItem < ActiveRecord::Base
   belongs_to :tag_contra, :inverse_of => :news_items
 
   def update (params)
-    puts "test"
+    folder_ids = [params[:folder_ids][:first], params[:folder_ids][:second], params[:folder_ids][:third]].uniq
+    self.folder_ids = folder_ids
+    self.save
   end
 end

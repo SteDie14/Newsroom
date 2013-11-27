@@ -132,9 +132,8 @@ class NewsItemsController < ApplicationController
         :web_url,
         :doc_url,
         :comment,
-        :folder_id,
-        :folder_ids,
-        :rss_source_id
+        :rss_source_id,
+        :folder_ids => [:first, :second, :third]
     )
   end
 end
