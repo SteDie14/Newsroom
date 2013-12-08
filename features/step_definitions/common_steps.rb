@@ -1,3 +1,7 @@
+Given(/^I visit the folders overview page\.$/) do
+  visit folders_path
+end
+
 And /^I see a success notice$/ do
   page.should have_selector ".alert-success"
 end

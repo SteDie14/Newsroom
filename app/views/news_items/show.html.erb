@@ -1,41 +1,45 @@
 <%- model_class = NewsItem -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <h1><%= t '.title', :default => model_class.model_name.human.titleize %></h1>
 </div>
 
 <dl class="dl-horizontal">
-  <% if defined? @news_item.release_date %>
   <dt><strong><%= model_class.human_attribute_name(:release_date) %>:</strong></dt>
-  <dd><%= @news_item.release_date %></dd>
-  <% end %>
+  <dd><%= @news_item.release_date.present? ? @news_item.release_date : " " %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:vendor) %>:</strong></dt>
-  <dd><%= @news_item.vendor %></dd>
+  <dd><%= @news_item.vendor.nil? ? "-" : @news_item.vendor %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:headline) %>:</strong></dt>
-  <dd><%= @news_item.headline %></dd>
+  <dd><%= @news_item.headline.nil? ? "-" : @news_item.headline %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:topic) %>:</strong></dt>
-  <dd><%= @news_item.topic %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:keywords) %>:</strong></dt>
-  <dd><%= @news_item.keywords %></dd>
+  <dd><%= @news_item.topic.nil? ? "-" : @news_item.topic %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:web_url) %>:</strong></dt>
-  <dd><%= @news_item.web_url %></dd>
+  <dd><%= @news_item.web_url.nil? ? "-" : @news_item.web_url %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:doc_url) %>:</strong></dt>
-  <dd><%= @news_item.doc_url %></dd>
+  <dd><%= @news_item.doc_url.nil? ? "-" : @news_item.doc_url %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:comment) %>:</strong></dt>
-  <dd><%= @news_item.comment %></dd>
+  <dd><%= @news_item.comment.nil? ? "-" : @news_item.comment %></dd>
+
   <dt><strong><%= model_class.human_attribute_name(:rss_source_id) %>:</strong></dt>
-  <dd><%= @news_item.rss_source_id %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:folder_id) %>:</strong></dt>
-  <dd><%= @folder_title %></dd>
+  <dd><%= @news_item.rss_source.nil? ? "-" : @news_item.rss_source.title %></dd>
+
+  <dt><strong><%= model_class.human_attribute_name(:folders) %>:</strong></dt>
+  <dd><%= @news_item.folders.collect { |folder| folder.title }.join(", ") %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              news_items_path, :class => 'btn'  %>
+              news_items_path, :class => 'btn' %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_news_item_path(@news_item), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               news_item_path(@news_item),
               :method => 'delete',
-              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
               :class => 'btn btn-danger' %>
 </div>

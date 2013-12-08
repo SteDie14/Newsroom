@@ -218,7 +218,7 @@ de:
       <<: *errors
     models:
       rss_source: RSS-Feed
-      folder:
+      folders:
         one: Kategorie
         other: Kategorien
         many: Kategorien
@@ -237,7 +237,7 @@ de:
         created_at: Erstellungsdatum
       news_item:
         id: ID
-        release_date: Veröffentlichungsdatum
+        release_date: Datum
         created_at: Abrufzeitpunkt
         vendor: Medium
         headline: Überschrift
@@ -247,7 +247,7 @@ de:
         doc_url: Dokument
         comment: Inhalt
         rss_source_id: RSS-Feed
-        folder_id: Kategorie
+        folders: Kategorien
   rss_sources:
     new:
       title: RSS-Feed erstellen

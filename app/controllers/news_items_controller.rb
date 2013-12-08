@@ -8,8 +8,9 @@ class NewsItemsController < ApplicationController
     news_items = nil
     if defined? params[:folder][:folder_id]
       unless params[:folder][:folder_id].nil? || params[:folder][:folder_id].empty?
-        news_items = NewsItem.where(:folder_id => Folder.find(params[:folder][:folder_id]).subtree_ids).all
         @selected_folder = params[:folder][:folder_id]
+        query = NewsItem.joins("join folders_news_items on news_items.id = folders_news_items.news_item_id")
+        news_items = query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id]).subtree_ids]).distinct(:news_item)
       end
     end
 
@@ -69,6 +70,11 @@ class NewsItemsController < ApplicationController
         format.json { render json: @news_item.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def keywords
+    @pro_tags = TagPro.names_with_counts.all
+    @contra_tags = TagContra.names_with_counts
   end
 
   # PATCH/PUT /news_items/1
@@ -132,9 +138,8 @@ class NewsItemsController < ApplicationController
         :web_url,
         :doc_url,
         :comment,
-        :folder_id,
-        :folder_ids,
-        :rss_source_id
+        :rss_source_id,
+        :folder_ids => [:first, :second, :third]
     )
   end
 end
