@@ -29,6 +29,10 @@ gem 'jbuilder', '~> 1.2'
 
 
 gem 'railshoster'
+gem 'net-ssh'
+gem 'net-scp'
+gem 'net-sftp'
+gem 'highline'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
