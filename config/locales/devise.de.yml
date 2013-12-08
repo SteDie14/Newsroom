@@ -1,59 +1,1 @@
-# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
-de:
-  devise:
-    confirmations:
-      confirmed: "Your account was successfully confirmed."
-      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions about how to confirm your account in a few minutes."
-    failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid email or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account will be locked."
-      not_found_in_database: "Invalid email or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "Sie müssen sich registrieren oder einloggen um diese Anwendung nutzen zu können."
-      unconfirmed: "You have to confirm your account before continuing."
-    mailer:
-      confirmation_instructions:
-        subject: "Confirmation instructions"
-      reset_password_instructions:
-        subject: "Reset password instructions"
-      unlock_instructions:
-        subject: "Unlock Instructions"
-    omniauth_callbacks:
-      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
-      success: "Successfully authenticated from %{kind} account."
-    passwords:
-      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
-      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
-      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password was changed successfully. You are now signed in."
-      updated_not_active: "Your password was changed successfully."
-    registrations:
-      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
-      signed_up: "Welcome! You have signed up successfully."
-      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
-      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
-      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please open the link to activate your account."
-      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
-      updated: "You updated your account successfully."
-    sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-    unlocks:
-      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
-      send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
-      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
-  errors:
-    messages:
-      already_confirmed: "was already confirmed, please try signing in"
-      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
-      expired: "has expired, please request a new one"
-      not_found: "not found"
-      not_locked: "was not locked"
-      not_saved:
-        one: "1 error prohibited this %{resource} from being saved:"
-        other: "%{count} errors prohibited this %{resource} from being saved:"
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18nde:  devise:    confirmations:      confirmed: "Ihr Konto wurde erfolgreich angelegt."      send_instructions: "Sie erhalten in den nächsten Minuten eine email, in der Sie bitte bestätigen, daß Sie diese ein Konto eingerichtet haben."      send_paranoid_instructions: "Sobald Ihre email in unserer Datenbank eingetragen wurde, erhalten Sie eine Bestätigung, daß Sie ein Konto besitzen."    failure:      already_authenticated: "Sie sind bereits eingeloggt."      inactive: "Ihr Konto ist nicht nicht aktiviert."      invalid: "Ungültige email oder Passwort."      locked: "Ihr Konto wurde gesperrt."      last_attempt: "Sie haben nur noch einen Versuch, sich anzumelden, bevor Ihr Konto gesperrt wird."      not_found_in_database: "Ungültige email oder Passwort."      timeout: "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."      unauthenticated: "Sie müssen sich anmelden, bevor Sie das Programm benutzen können."      unconfirmed: "Sie müssen ihr Konto bestätigen, bevor Sie sich anmelden können."    mailer:      confirmation_instructions:        subject: "Bestätigen Sie bitte."      reset_password_instructions:        subject: "Setzen Sie Ihr Passwort zurück."      unlock_instructions:        subject: "Geben Sie bitte Ihre Instruktionen an."    omniauth_callbacks:      failure: "Sie konnten night verifiziert warden %{kind} weil \"%{reason}\"."      success: "Sie wurden erfolgreich verifiziert."    passwords:      no_token: "Sie können diese Webseite nicht öffnen, bevor Sie night über die URL in der Reset email auf die Seite gelangen . Wenn Sie die URL aus der Reset email verwenden, achten Sie bitte darauf, daß die URL komplett ist."      send_instructions: "Sie erhalten in den nächsten Minuten eine email, wie Sie Ihr Passwort zurück setzen."      send_paranoid_instructions: "Wenn sich ihre email in unserer Datenbank befindet, werden Sie in den nächsten Minuten eine email erhalten."      updated: "Ihr Passwort wurde erfolgreich geändert. Bitte loggen Sie sich in den nächsten Minuten ein."      updated_not_active: "Ihr Passwort wurde erfolgreich geändert."    registrations:      destroyed: "Vielen Dank! Ihr Passwort wurde gelöscht. Vielleicht bis demnächst."      signed_up: Willkommen! Sie haben sich erfolgreich angemeldet."      signed_up_but_inactive: "Sie haben sich erfolgreich angemeldet, konnten aber noch nicht angemeldet werden, da Ihr Konto noch nicht aktiviert wurde."      signed_up_but_locked: "Sie haven sich erfolgreich angemeldet, konnten aber noch nicht angemeldet werden, da Ihr Konto gesperrt wurde."      signed_up_but_unconfirmed: "Eine Nachricht wurde an Ihre email Adresse geschickt. Bitte prüfen Sie Ihre email Konto."      update_needs_confirmation: "Sie haben Ihr Konto erfolgreich aktualisiert. Bitte prüfen Sie Ihr email Konto und bestätigen Sie Ihr Konto."      updated: "Sie haben Ihr Konto erfolgreich aktualisiert."    sessions:      signed_in: "Erfolgreich angemeldet."      signed_out: "Erfolgreich abgemeldet."    unlocks:      send_instructions: "Sie erhalten in den nächsten Minuten eine email, wie Sie Ihr Konto frei schalten können."      send_paranoid_instructions: "Wenn Ihr Konto frei geschaltet wurde, erhalten Sie in den nächsten Minuten eine Bestätigung."      unlocked: "Ihr Konto wurde erfolgreich frei geschaltet. Bitte versuchen Sie es erneut."  errors:    messages:      already_confirmed: "Wurde gesendet. Bitte versuchen Sie es erneut."      confirmation_period_expired: "muß innerhalb der nächsten Tagen erneuert werden %{period}. Bitte fordern Sie ein neues Konto an."      expired: "ist abgelaufen. Bitte fordern Sie ein neues Konto an."      not_found: "nicht gefunden"      not_locked: "wurde nicht frei geschaltet"      not_saved:        one: "Ein Fehler verhinderte, daß %{resource} gespeichert wurde:"        other: "%{count} Fehler verhinderten, daß %{resource} gespeichert werden konnte:"
