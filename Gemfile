@@ -37,6 +37,7 @@ gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
 
+gem 'devise'
 
 group :development, :test do
   gem 'cucumber-rails', :require => false
