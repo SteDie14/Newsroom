@@ -57,6 +57,7 @@ set :repository, "git@bitbucket.org:effectivebytes/newsgrabber.git"
 # :subversionn or :git
 set :scm, :git
 set :scm_verbose, true
+set :ssh_options, {:forward_agent => true}
 
 #### System Settings
 ## General Settings ( don't change them please )

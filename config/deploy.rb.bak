@@ -42,9 +42,9 @@ end
 set :user, "user56412206"
 
 
-# allow SSH-Key-Forwarding
-set :ssh_options, { :forward_agent => true }  
-ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "cygnuscon")]
+# password to login to the target server
+set :password, "n1CuqWCbAB"
+
 
 ## Application name and repository
 

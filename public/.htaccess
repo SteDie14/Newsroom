@@ -1,0 +1,4 @@
+AuthName "Denied"
+AuthType Basic
+AuthUserFile /home/user56412206/rails1/current/.htpasswd
+require valid-user
