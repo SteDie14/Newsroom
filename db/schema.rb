@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20131208183821) do
 
   create_table "folders", force: true do |t|
-    t.string "title"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "ancestry"
+    t.string   "ancestry"
   end
 
   add_index "folders", ["ancestry"], name: "index_folders_on_ancestry", using: :btree
@@ -28,53 +28,53 @@ ActiveRecord::Schema.define(version: 20131208183821) do
   end
 
   create_table "news_items", force: true do |t|
-    t.date "release_date"
-    t.string "vendor"
-    t.string "headline"
-    t.string "topic"
-    t.string "keywords"
-    t.text "web_url"
-    t.string "doc_url"
-    t.text "comment"
-    t.integer "rss_source_id"
+    t.date     "release_date"
+    t.string   "vendor"
+    t.string   "headline"
+    t.string   "topic"
+    t.string   "keywords"
+    t.text     "web_url"
+    t.string   "doc_url"
+    t.text     "comment"
+    t.integer  "rss_source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string "guid"
-    t.text "summary"
-    t.integer "tag_contra_id"
-    t.integer "tag_pro_id"
+    t.string   "guid"
+    t.text     "summary"
+    t.integer  "tag_contra_id"
+    t.integer  "tag_pro_id"
   end
 
   create_table "rss_sources", force: true do |t|
-    t.string "title"
-    t.text "url"
+    t.string   "title"
+    t.text     "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tag_contras", force: true do |t|
-    t.string "name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tag_pros", force: true do |t|
-    t.string "name"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
