@@ -65,6 +65,7 @@ class RssSourcesController < ApplicationController
   # DELETE /rss_sources/1
   # DELETE /rss_sources/1.json
   def destroy
+
     @rss_source.destroy
     respond_to do |format|
       format.html { redirect_to rss_sources_url }
