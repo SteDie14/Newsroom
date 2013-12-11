@@ -4,7 +4,7 @@ class RssSource < ActiveRecord::Base
 
   def update_from_feed
     feed = Feedzirra::Feed.fetch_and_parse(self.url)
-    unless feed.nil?
+    unless 0==feed
       feed.entries.each do |entry|
         guid = entry.id
         news_item = self.news_items.where(:guid => guid).first
