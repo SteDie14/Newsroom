@@ -80,6 +80,9 @@ class RssSourcesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rss_source_params
+      if defined? params[:rss_source][:url]
+        params[:rss_source][:url] = params[:rss_source][:url].gsub(/feed:\/\//,'http://')
+      end
       params.require(:rss_source).permit(:title, :url)
     end
 end

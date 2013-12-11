@@ -21,6 +21,10 @@ class RssSource < ActiveRecord::Base
       end
     end
   end
-
-  #@TODO: .gsub(/feed:\/\//,'http://')
 end
+
+def save (params)
+  puts params.inspect
+end
+
+#@TODO: .gsub(/feed:\/\//,'http://')
