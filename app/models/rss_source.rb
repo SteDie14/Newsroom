@@ -2,6 +2,14 @@ require 'feedzirra'
 class RssSource < ActiveRecord::Base
   has_many :news_items, :inverse_of => :rss_source, :dependent => :destroy
 
+  #@TODO: Add Custom Validations for FEED-Urls
+  #def valid?(url)
+  #  uri = URI.parse(url)
+  #  uri.kind_of?(URI::HTTP)
+  #rescue URI::InvalidURIError
+  #  false
+  #end
+
   def update_from_feed
     feed = Feedzirra::Feed.fetch_and_parse(self.url)
     unless 0==feed || feed.nil?
