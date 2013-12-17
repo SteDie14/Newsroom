@@ -5,7 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-RssSource.create!(
-    :title => 'Google News  - Elektromotor',
-    :url => 'http://news.google.com/news?hl=de&gl=de&authuser=0&q=elektromotor&um=1&ie=UTF-8&output=rss'
-)
+if RssSource.count == 0
+  RssSource.create!(
+      :title => 'Google News  - Elektromotor',
+      :url => 'http://news.google.com/news?hl=de&gl=de&authuser=0&q=elektromotor&um=1&ie=UTF-8&output=rss'
+  )
+end
+
+if User.count == 0
+  User.create!(
+      :email => "bernhard.zuern@googlemail.com",
+      :password => "demo12345",
+      :password_confirmation => "demo12345"
+  )
+end
