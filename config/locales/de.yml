@@ -132,6 +132,8 @@ de:
       rss_source:
         title: Titel
         url: RSS-Feed URL
+      user:
+        remember_me: Eingeloggt bleiben
     links:
       cancel: Abbrechen
       edit: bearbeiten
@@ -248,6 +250,8 @@ de:
         comment: Inhalt
         rss_source_id: RSS-Feed
         folders: Kategorien
+      user:
+        password: Passwort
   rss_sources:
     new:
       title: RSS-Feed erstellen

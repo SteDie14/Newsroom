@@ -38,6 +38,7 @@ gem 'therubyracer'
 gem 'less-rails'
 
 gem 'devise'
+gem 'devise-i18n-views'
 
 group :development, :test do
   gem 'cucumber-rails', :require => false
