@@ -11,12 +11,13 @@ class NewsItemsController < ApplicationController
       unless params[:folder][:folder_id].nil? || params[:folder][:folder_id].empty?
         @selected_folder = params[:folder][:folder_id]
         query = NewsItem.joins("join folders_news_items on news_items.id = folders_news_items.news_item_id")
-        news_items = query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id]).subtree_ids]).distinct(:news_item)
+        my_query = query.where(:user_id => current_user.id)
+        news_items = my_query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id]).subtree_ids]).distinct(:news_item)
       end
     end
 
     if news_items.nil?
-      news_items = NewsItem.all
+      news_items = NewsItem.where(:user_id => current_user.id)
     end
 
     @news_items = news_items
