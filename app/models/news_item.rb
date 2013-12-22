@@ -10,7 +10,6 @@ class NewsItem < ActiveRecord::Base
   def update (params)
     folder_ids = [params[:folder_ids][:first], params[:folder_ids][:second], params[:folder_ids][:third]].uniq
     self.folder_ids = folder_ids
-    self.user = current_user
     self.save
   end
 

@@ -5,18 +5,20 @@ class NewsItemsController < ApplicationController
   # GET /news_items
   # GET /news_items.json
   def index
-    @selected_folder = 0
+    no_filter = true
+    @selected_folder1 = 0
     news_items = nil
     if defined? params[:folder][:folder_id1]
-      unless params[:folder][:folder_id].nil? || params[:folder][:folder_id].empty?
-        @selected_folder = params[:folder][:folder_id]
+      unless params[:folder][:folder_id1].nil? || params[:folder][:folder_id1].empty?
+        no_filter = false
+        @selected_folder1 = params[:folder][:folder_id1]
         query = NewsItem.joins("join folders_news_items on news_items.id = folders_news_items.news_item_id")
         my_query = query.where(:user_id => current_user.id)
-        news_items = my_query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id]).subtree_ids]).distinct(:news_item)
+        news_items = my_query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id1]).subtree_ids]).distinct(:news_item)
       end
     end
 
-    if news_items.nil?
+    if news_items.nil? && no_filter
       news_items = NewsItem.where(:user_id => current_user.id)
     end
 
@@ -53,11 +55,7 @@ class NewsItemsController < ApplicationController
 
   # GET /news_items/1/edit
   def edit
-    #@folder_id
-    #@folders = [['-',nil]]
-    #Folder.find_each do |folder|
-    #  @folders.append [folder.title,folder.id]
-    #end
+
   end
 
   # POST /news_items
@@ -98,6 +96,10 @@ class NewsItemsController < ApplicationController
 
   def update_multiple
     unless defined? params['news_items']
+      return redirect_to news_items_url, :notice => 'Keine zu speichernden Werte.'
+    end
+
+    if params['news_items'].nil?
       return redirect_to news_items_url, :notice => 'Keine zu speichernden Werte.'
     end
 

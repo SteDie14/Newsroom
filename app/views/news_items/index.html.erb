@@ -6,34 +6,33 @@
   <%= form_tag({:action => :index}, {:method => :get}) do %>
 
 
-        <div class="span2">
-          <strong>Kategorie</strong>
-          <br />
-          <%= collection_select(:folder, :folder_id1, @folders, :id, :title_for_selects, :selected => @selected_folder1, :include_blank => true) %>
-        </div>
+      <div class="span2">
+        <strong>Kategorie</strong>
+        <br/>
+        <%= collection_select(:folder, :folder_id1, @folders, :id, :title_for_selects, :selected => @selected_folder1, :include_blank => true) %>
+      </div>
 
-        <div class="span1">
-          <strong>Operator</strong>
-          <%= select(:folder, :operator1, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
-        </div>
+      <div class="span1">
+        <strong>Operator</strong>
+        <%= select(:folder, :operator1, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
+      </div>
 
-        <div class="span2">
-          <strong>Kategorie</strong>
-          <br />
-          <%= collection_select(:folder, :folder_id2, @folders, :id, :title_for_selects, :selected => @selected_folder2, :include_blank => true) %>
-        </div>
+      <div class="span2">
+        <strong>Kategorie</strong>
+        <br/>
+        <%= collection_select(:folder, :folder_id2, @folders, :id, :title_for_selects, :selected => @selected_folder2, :include_blank => true) %>
+      </div>
 
-        <div class="span1">
-          <strong>Operator</strong>
-          <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
-        </div>
+      <div class="span1">
+        <strong>Operator</strong>
+        <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
+      </div>
 
-        <div class="span2">
-          <strong>Kategorie</strong>
-          <br />
-          <%= collection_select(:folder, :folder_id3, @folders, :id, :title_for_selects, :selected => @selected_folder3, :include_blank => true) %>
-        </div>
-
+      <div class="span2">
+        <strong>Kategorie</strong>
+        <br/>
+        <%= collection_select(:folder, :folder_id3, @folders, :id, :title_for_selects, :selected => @selected_folder3, :include_blank => true) %>
+      </div>
 
 
       <br/>
@@ -70,56 +69,58 @@
       </tr>
       </thead>
       <tbody>
-      <% @news_items.each do |news_item| %>
-          <tr>
-            <!--<td><%= link_to news_item.id, news_item_path(news_item) %></td>-->
-            <td>
-              <strong><%= link_to news_item.release_date, news_item_path(news_item) %></strong>
-              <br/>
-              <%= l news_item.created_at %>
-            </td>
-            <td>
-              <!--<div class="control-group">-->
-              <div class="controls">
-                <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_pro]", (defined?(news_item.tag_pro.name) ? news_item.tag_pro.name : " "), :class => "input-small" %>
-              </div>
-              <!--</div>-->
-            </td>
-            <td>
-              <div class="control-group">
-                <div class="controls">
-                  <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_contra]", (defined?(news_item.tag_contra.name) ? news_item.tag_contra.name : " "), :class => "input-small" %>
-                </div>
-              </div>
-            </td>
-            <td>
-              <strong>
-                <%= news_item.folders.collect { |folder| folder.title }.join(", ") %>
-              </strong>
-            </td>
-            <!--<td><%= news_item.vendor %></td>-->
-            <td>
-              <strong><%= RssSource.find(news_item.rss_source_id).title %></strong>
-              <br/>
-              <%= news_item.headline %>
-            </td>
-            <!--<td><%= news_item.topic %></td>-->
-            <!--<td><%= news_item.keywords %></td>-->
-            <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
-            <!--<td><%= news_item.doc_url %></td>-->
-            <!--<td><%= news_item.comment %></td>-->
+      <% unless @news_items.nil? %>
+          <% @news_items.each do |news_item| %>
+              <tr>
+                <!--<td><%= link_to news_item.id, news_item_path(news_item) %></td>-->
+                <td>
+                  <strong><%= link_to news_item.release_date, news_item_path(news_item) %></strong>
+                  <br/>
+                  <%= l news_item.created_at %>
+                </td>
+                <td>
+                  <!--<div class="control-group">-->
+                  <div class="controls">
+                    <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_pro]", (defined?(news_item.tag_pro.name) ? news_item.tag_pro.name : " "), :class => "input-small" %>
+                  </div>
+                  <!--</div>-->
+                </td>
+                <td>
+                  <div class="control-group">
+                    <div class="controls">
+                      <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_contra]", (defined?(news_item.tag_contra.name) ? news_item.tag_contra.name : " "), :class => "input-small" %>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <strong>
+                    <%= news_item.folders.collect { |folder| folder.title }.join(", ") %>
+                  </strong>
+                </td>
+                <!--<td><%= news_item.vendor %></td>-->
+                <td>
+                  <strong><%= RssSource.find(news_item.rss_source_id).title %></strong>
+                  <br/>
+                  <%= news_item.headline %>
+                </td>
+                <!--<td><%= news_item.topic %></td>-->
+                <!--<td><%= news_item.keywords %></td>-->
+                <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
+                <!--<td><%= news_item.doc_url %></td>-->
+                <!--<td><%= news_item.comment %></td>-->
 
-            <td>
-              <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                          edit_news_item_path(news_item), :class => 'btn btn-mini' %>
-              <br/>
-              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                          news_item_path(news_item),
-                          :method => :delete,
-                          :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
-                          :class => 'btn btn-mini btn-danger' %>
-            </td>
-          </tr>
+                <td>
+                  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                              edit_news_item_path(news_item), :class => 'btn btn-mini' %>
+                  <br/>
+                  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                              news_item_path(news_item),
+                              :method => :delete,
+                              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+                              :class => 'btn btn-mini btn-danger' %>
+                </td>
+              </tr>
+          <% end %>
       <% end %>
       </tbody>
     </table>
