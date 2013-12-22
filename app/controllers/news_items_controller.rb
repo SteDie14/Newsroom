@@ -35,7 +35,7 @@ class NewsItemsController < ApplicationController
 
   # Alle Meldungen (Feeds) aktualisieren.
   def synchronize
-    RssSource.find_each do |rss_source|
+    RssSource.where(:user_id => current_user.id).each do |rss_source|
 
       if rss_source
         rss_source.update_from_feed current_user
