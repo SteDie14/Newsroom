@@ -13,7 +13,7 @@ class RssSource < ActiveRecord::Base
   #  false
   #end
 
-  def update_from_feed
+  def update_from_feed(owner)
     feed = Feedzirra::Feed.fetch_and_parse(self.url)
     unless 0==feed || feed.nil?
       feed.entries.each do |entry|
@@ -26,6 +26,7 @@ class RssSource < ActiveRecord::Base
             :web_url => entry.url,
             :release_date => entry.published,
             :guid => entry.id,
+            :user => owner
             #:rss_source_id => self.id
           )
         end

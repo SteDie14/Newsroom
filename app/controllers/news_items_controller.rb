@@ -37,7 +37,7 @@ class NewsItemsController < ApplicationController
     RssSource.find_each do |rss_source|
 
       if rss_source
-        rss_source.update_from_feed
+        rss_source.update_from_feed current_user
       end
     end
     return redirect_to :action => :index

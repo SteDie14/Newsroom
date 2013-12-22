@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222120258) do
+ActiveRecord::Schema.define(version: 20131222121247) do
 
   create_table "folders", force: true do |t|
     t.string   "title"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20131222120258) do
     t.text     "summary"
     t.integer  "tag_contra_id"
     t.integer  "tag_pro_id"
+    t.integer  "user_id"
   end
 
   create_table "rss_sources", force: true do |t|

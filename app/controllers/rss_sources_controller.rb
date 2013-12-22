@@ -18,7 +18,7 @@ class RssSourcesController < ApplicationController
     rss_source = RssSource.find(params[:id])
 
     if rss_source
-      rss_source.update_from_feed
+      rss_source.update_from_feed(current_user)
     end
 
     return redirect_to :action => :show
