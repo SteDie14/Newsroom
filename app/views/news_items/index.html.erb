@@ -25,7 +25,7 @@
 
       <div class="span1">
         <strong>Operator</strong>
-        <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
+        <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => @selected_operator2, :include_blank => true) %>
       </div>
 
       <div class="span2">

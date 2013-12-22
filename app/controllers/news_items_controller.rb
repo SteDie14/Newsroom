@@ -49,29 +49,54 @@ class NewsItemsController < ApplicationController
         @selected_folder3 = params[:folder][:folder_id3]
         query3 = NewsItem.joins(:folders).where(folders: {id: Folder.find(params[:folder][:folder_id3]).subtree_ids})
         query3 = query3.where(:user_id => current_user.id)
+        # Operator 1
+        if defined? params[:folder][:operator2] && @selected_folder3.to_i > 0
+          unless params[:folder][:operator2].nil? || params[:folder][:operator2].empty?
+            @selected_operator2 = params[:folder][:operator2]
+          end
+        end
       end
     end
 
     # Auswerten
     unless query1.nil?
+
+      # 1. Kategorie
       if @selected_folder1.to_i > 0
         query = query1
-      end
 
+        # 1. und 2. Kategorie
+        if @selected_folder2.to_i > 0
+          if "and" == @selected_operator1
+            query = query1 & query2
+          end
 
-      if @selected_folder2.to_i > 0
-        if "and" == @selected_operator1
-          query = query1 & query2
-        end
-
-        if "or" == @selected_operator1
+          if "or" == @selected_operator1
             query = query1 | query2
-        end
+          end
 
-        if "xor" == @selected_operator1
-          query = query1 + query2 - (query1 & query2)
+          if "xor" == @selected_operator1
+            query = query1 + query2 - (query1 & query2)
+          end
+
+          #1. und 2. und 3. Kategorie
+          if @selected_folder3.to_i > 0
+            if "and" == @selected_operator2
+              query = query & query3
+            end
+
+            if "or" == @selected_operator2
+              query = query | query3
+            end
+
+            if "xor" == @selected_operator2
+              query = query + query3 - (query & query3)
+            end
+          end
         end
       end
+
+
       news_items = query
     end
 
