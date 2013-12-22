@@ -7,7 +7,7 @@ class NewsItemsController < ApplicationController
   def index
     @selected_folder = 0
     news_items = nil
-    if defined? params[:folder][:folder_id]
+    if defined? params[:folder][:folder_id1]
       unless params[:folder][:folder_id].nil? || params[:folder][:folder_id].empty?
         @selected_folder = params[:folder][:folder_id]
         query = NewsItem.joins("join folders_news_items on news_items.id = folders_news_items.news_item_id")

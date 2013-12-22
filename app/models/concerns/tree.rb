@@ -20,7 +20,7 @@ module Tree
   end
 
   module ClassMethods
-    def arrange_as_array(options={}, hash=nil, max_depth = 1)
+    def arrange_as_array(options={}, hash=nil, max_depth = 2)
       hash ||= arrange(options) unless hash.is_a? Array
 
       arr = []

@@ -3,16 +3,42 @@
   <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 <div id="filter">
-  <%= form_tag news_items_path, :method => :get do %>
-      <div class="control-group">
-        Kategorie
-        <div class="controls">
-          <% folders = @folders %>
-          <%= collection_select(:folder, :folder_id, folders, :id, :title_for_selects, :selected => @selected_folder, :include_blank => true) %>
+  <%= form_tag({:action => :index}, {:method => :get}) do %>
+
+
+        <div class="span2">
+          <strong>Kategorie</strong>
+          <br />
+          <%= collection_select(:folder, :folder_id1, @folders, :id, :title_for_selects, :selected => @selected_folder1, :include_blank => true) %>
         </div>
-      </div>
+
+        <div class="span1">
+          <strong>Operator</strong>
+          <%= select(:folder, :operator1, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
+        </div>
+
+        <div class="span2">
+          <strong>Kategorie</strong>
+          <br />
+          <%= collection_select(:folder, :folder_id2, @folders, :id, :title_for_selects, :selected => @selected_folder2, :include_blank => true) %>
+        </div>
+
+        <div class="span1">
+          <strong>Operator</strong>
+          <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => nil, :include_blank => true) %>
+        </div>
+
+        <div class="span2">
+          <strong>Kategorie</strong>
+          <br />
+          <%= collection_select(:folder, :folder_id3, @folders, :id, :title_for_selects, :selected => @selected_folder3, :include_blank => true) %>
+        </div>
+
+
+
+      <br/>
       <%= submit_tag 'Filtern' %>
-<% end %>
+  <% end %>
 </div>
 <%= form_tag update_multiple_news_items_path, :method => :put do |ft| %>
     <table class="table table-striped" style="background-color: #ffffff;">
