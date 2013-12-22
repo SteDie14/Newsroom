@@ -5,7 +5,7 @@ class FoldersController < ApplicationController
   # GET /folders
   # GET /folders.json
   def index
-    @folders = Folder.arrange_as_array({:order => 'title'}, Folder.all)
+    @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
   end
 
   # GET /folders/1
