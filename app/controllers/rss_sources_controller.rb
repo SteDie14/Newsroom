@@ -5,7 +5,7 @@ class RssSourcesController < ApplicationController
   # GET /rss_sources
   # GET /rss_sources.json
   def index
-    @rss_sources = RssSource.all
+    @rss_sources = RssSource.where(:user_id => current_user.id)
   end
 
   # GET /rss_sources/1
