@@ -8,14 +8,32 @@ class NewsItemsController < ApplicationController
     no_filter = true
     @selected_folder1 = 0
     news_items = nil
+
+    # 1. Kategorie
     if defined? params[:folder][:folder_id1]
       unless params[:folder][:folder_id1].nil? || params[:folder][:folder_id1].empty?
         no_filter = false
         @selected_folder1 = params[:folder][:folder_id1]
         query = NewsItem.joins("join folders_news_items on news_items.id = folders_news_items.news_item_id")
-        my_query = query.where(:user_id => current_user.id)
-        news_items = my_query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id1]).subtree_ids]).distinct(:news_item)
+        query = query.where(:user_id => current_user.id)
+        query = query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id1]).subtree_ids]).distinct(:news_item)
       end
+    end
+
+    # 1. und 2. Kategorie
+    #if defined?(params[:folder][:folder_id1]) && defined?(params[:folder][:folder_id2])
+    #  unless params[:folder][:folder_id1].nil? || params[:folder][:folder_id1].empty? || params[:folder][:folder_id2].nil? || params[:folder][:folder_id2].empty?
+    #    no_filter = false
+    #    @selected_folder2 = params[:folder][:folder_id2]
+    #    query = NewsItem.joins("join folders_news_items on news_items.id = folders_news_items.news_item_id")
+    #    my_query = query.where(:user_id => current_user.id)
+    #    news_items = my_query.where(["folders_news_items.folder_id IN (?)", Folder.find(params[:folder][:folder_id1]).subtree_ids]).distinct(:news_item)
+    #  end
+    #end
+
+    # Auswerten
+    unless query.nil?
+      news_items = query.all
     end
 
     if news_items.nil? && no_filter
