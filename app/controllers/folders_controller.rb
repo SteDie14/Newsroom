@@ -1,4 +1,5 @@
 class FoldersController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_folder, only: [:show, :edit, :update, :destroy]
 
   # GET /folders

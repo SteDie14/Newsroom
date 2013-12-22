@@ -1,4 +1,5 @@
 class RssSourcesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_rss_source, only: [:show, :edit, :update, :destroy]
 
   # GET /rss_sources

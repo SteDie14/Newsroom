@@ -39,6 +39,7 @@ gem 'less-rails'
 
 gem 'devise'
 gem 'devise-i18n-views'
+gem 'high_voltage'
 
 group :development, :test do
   gem 'cucumber-rails', :require => false
