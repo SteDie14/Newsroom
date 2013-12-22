@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222113220) do
+ActiveRecord::Schema.define(version: 20131222120258) do
 
   create_table "folders", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
+    t.integer  "user_id"
   end
 
   add_index "folders", ["ancestry"], name: "index_folders_on_ancestry", using: :btree

@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :rss_sources, :inverse_of => :user, :dependent => :destroy
+  has_many :folders, :inverse_of => :user, :dependent => :destroy
 end
