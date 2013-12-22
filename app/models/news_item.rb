@@ -4,6 +4,7 @@ class NewsItem < ActiveRecord::Base
   belongs_to :tag_pro, :inverse_of => :news_items
   belongs_to :tag_contra, :inverse_of => :news_items
   belongs_to :user, :inverse_of => :news_items
+
   validates_presence_of :user
 
   def update (params)

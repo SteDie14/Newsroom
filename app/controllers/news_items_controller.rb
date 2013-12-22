@@ -81,6 +81,7 @@ class NewsItemsController < ApplicationController
   # PATCH/PUT /news_items/1
   # PATCH/PUT /news_items/1.json
   def update
+    @news_item.user = current_user
     respond_to do |format|
       if @news_item.update(news_item_params)
         format.html { redirect_to @news_item, notice: 'News item was successfully updated.' }
@@ -100,12 +101,12 @@ class NewsItemsController < ApplicationController
     params['news_items'].each do |news_item_id, news_item_values|
       unless "" == news_item_values['tag_pro'].strip
         news_item = NewsItem.find(news_item_id)
-        news_item.tag_pro = TagPro.find_or_create_by(:name => news_item_values['tag_pro'].strip)
+        news_item.tag_pro = TagPro.find_or_create_by(:name => news_item_values['tag_pro'].strip, :user_id => current_user.id)
         news_item.save
       end
       unless "" == news_item_values['tag_contra'].strip
         news_item = NewsItem.find(news_item_id)
-        news_item.tag_contra = TagContra.find_or_create_by(:name => news_item_values['tag_contra'].strip)
+        news_item.tag_contra = TagContra.find_or_create_by(:name => news_item_values['tag_contra'].strip, :user_id => current_user.id)
         news_item.save
       end
     end
