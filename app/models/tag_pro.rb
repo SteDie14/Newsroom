@@ -1,6 +1,6 @@
 class TagPro < ActiveRecord::Base
   has_many :news_items, inverse_of: :tag_pro
-  belongs_to :user, :inverse_of => :tag_pro
+  belongs_to :user, :inverse_of => :tag_pros
 
   validates_presence_of :user
 

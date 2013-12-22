@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   has_many :folders, :inverse_of => :user, :dependent => :destroy
   has_many :news_items, :inverse_of => :user, :dependent => :destroy
   has_many :tag_pros, :inverse_of => :user, :dependent => :destroy
-  has_many :tag_contra, :inverse_of => :user, :dependent => :destroy
+  has_many :tag_contras, :inverse_of => :user, :dependent => :destroy
 end

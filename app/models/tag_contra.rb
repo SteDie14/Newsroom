@@ -1,6 +1,6 @@
 class TagContra < ActiveRecord::Base
   has_many :news_items, inverse_of: :tag_contra
-  belongs_to :user, :inverse_of => :tag_contra
+  belongs_to :user, :inverse_of => :tag_contras
 
   validates_presence_of :user
 
