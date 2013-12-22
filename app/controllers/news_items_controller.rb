@@ -20,6 +20,8 @@ class NewsItemsController < ApplicationController
       news_items = NewsItem.where(:user_id => current_user.id)
     end
 
+    @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
+
     @news_items = news_items
   end
 

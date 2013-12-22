@@ -7,7 +7,7 @@
       <div class="control-group">
         Kategorie
         <div class="controls">
-          <% folders = Folder.arrange_as_array({:order => 'title'}) %>
+          <% folders = @folders %>
           <%= collection_select(:folder, :folder_id, folders, :id, :title_for_selects, :selected => @selected_folder, :include_blank => true) %>
         </div>
       </div>
