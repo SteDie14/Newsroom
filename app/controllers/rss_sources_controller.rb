@@ -37,6 +37,7 @@ class RssSourcesController < ApplicationController
   # POST /rss_sources.json
   def create
     @rss_source = RssSource.new(rss_source_params)
+    @rss_source.user = current_user
 
     respond_to do |format|
       if @rss_source.save

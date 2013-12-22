@@ -1,6 +1,9 @@
 require 'feedzirra'
 class RssSource < ActiveRecord::Base
   has_many :news_items, :inverse_of => :rss_source, :dependent => :destroy
+  belongs_to :user, :inverse_of => :rss_sources
+
+  validates_presence_of :user
 
   #@TODO: Add Custom Validations for FEED-Urls
   #def valid?(url)
