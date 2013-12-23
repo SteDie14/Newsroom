@@ -50,21 +50,25 @@
 
       <div class="container-fluid nav-collapse">
         <ul class="nav">
-          <li><%= link_to "RSS-Quellen", rss_sources_path %></li>
+          <li><%= link_to "Quellen", rss_sources_path %></li>
           <li><%= link_to "Meldungen", news_items_path %></li>
-          <li><%= link_to "Kategorien verwalten", folders_path %></li>
+          <li><%= link_to "Kategorien", folders_path %></li>
           <li><%= link_to t("Schlagworte"), '/keywords', :method => :get %></li>
-          <li style="font-weight:bold;"><%= link_to t('.Meldungen aktualisieren'), '/synchronize', :method => :post %></li>
+          <li style="font-weight:bold;"><%= link_to t('.Aktualisieren'), '/synchronize', :method => :post %></li>
         </ul>
         <div style="float:right;padding-top: 10px;">
-          <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong> |
-              <%= link_to 'Edit Profile', edit_user_registration_path %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-          <% else %>
-              <%= link_to "Sign up", new_user_registration_path %> |
-              <%= link_to "Login", new_user_session_path %>
-          <% end %>
+          <strong>
+            <% if user_signed_in? %>
+                <%#= current_user.email %>
+
+                <%= link_to 'Profil', edit_user_registration_path %> |
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+            <% else %>
+                <%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Login", new_user_session_path %>
+            <% end %>
+          </strong>
         </div>
       </div>
       <!--/.nav-collapse -->
@@ -106,7 +110,7 @@
   <footer class="row">
     <div class=" span2 offset4">
       <p>
-        <%=link_to 'Impressum', page_path('imprint')%>
+        <%= link_to 'Impressum', page_path('imprint') %>
       </p>
     </div>
     <div class=" span3">

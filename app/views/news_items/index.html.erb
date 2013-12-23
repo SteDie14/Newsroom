@@ -37,6 +37,8 @@
 
       <br/>
       <%= submit_tag 'Filtern' %>
+
+      <%= link_to "Neue Meldung", new_news_item_path, :class => "tbn btn-success2" %>
   <% end %>
 </div>
 <%= form_tag update_multiple_news_items_path, :method => :put do |ft| %>

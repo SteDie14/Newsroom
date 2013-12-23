@@ -79,7 +79,7 @@
     <div class="control-group">
       <%= f.label :rss_source_id, :class => 'control-label' %>
       <div class="controls">
-        <p style="margin-top:5px;"><strong><%= @news_item.rss_source.title %></strong></p>
+        <p style="margin-top:5px;"><strong><%= @news_item.rss_source.nil? ? "" : @news_item.rss_source.title %></strong></p>
         <%#= f.text_field :rss_source_id, :class => 'text_field' %>
       </div>
     </div>
