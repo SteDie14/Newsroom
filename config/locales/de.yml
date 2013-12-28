@@ -272,3 +272,7 @@ de:
       back: zurück
     edit:
       title: Meldung bearbeiten
+  template:
+      navigation:
+        keywords: Schlagworte
+        update: Aktualisieren

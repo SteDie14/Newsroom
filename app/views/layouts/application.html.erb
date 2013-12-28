@@ -12,7 +12,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
   <![endif]-->
 
-  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag 'application', :media => 'all' %>
 
   <!-- For third-generation iPad with high-resolution Retina display: -->
   <!-- Size should be 144 x 144 pixels -->
@@ -34,7 +34,7 @@
   <!-- Size should be 32 x 32 pixels -->
   <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'application' %>
 </head>
 <body>
 
@@ -50,11 +50,14 @@
 
       <div class="container-fluid nav-collapse">
         <ul class="nav">
-          <li><%= link_to "Quellen", rss_sources_path %></li>
-          <li><%= link_to "Meldungen", news_items_path %></li>
-          <li><%= link_to "Kategorien", folders_path %></li>
-          <li><%= link_to t("Schlagworte"), '/keywords', :method => :get %></li>
-          <li style="font-weight:bold;"><%= link_to t('.Aktualisieren'), '/synchronize', :method => :post %></li>
+          <li><%= link_to 'Newsgrabber', '#' %></li>
+          <li><%= link_to 'Quellen', rss_sources_path %></li>
+          <li><%= link_to 'Meldungen', news_items_path %></li>
+          <li><%= link_to 'Kategorien', folders_path %></li>
+          <li><%= link_to t('template.navigation.keywords'), '/keywords', :method => :get %></li>
+          <li style="font-weight:bold;">
+            <%= link_to t('template.navigation.update'), '/synchronize', :method => :post %>
+          </li>
         </ul>
         <div style="float:right;padding-top: 10px;">
           <strong>
