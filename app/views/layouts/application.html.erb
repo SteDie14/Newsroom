@@ -78,30 +78,14 @@
 </div>
 
 <div class="container-fluid">
+  <% flash.each do |name,msg| %>
+    <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= msg %>
+    </div>
+  <% end %>
   <div class="row-fluid">
-    <!--<div class="span3">-->
-    <!--<div class="well sidebar-nav">-->
-    <!--<ul class="nav nav-list">-->
-    <!--<li class="nav-header">Menü</li>-->
-    <!--
-    <% if defined? @rss_source %>-->
-        <!--<li>-->
-        <!--<%= link_to 'Nachrichten abrufen', synchronize_rss_source_url(@rss_source), :method => :post %>-->
-        <!--</li>-->
-        <!--
-    <% end %>-->
-    <!--</ul>-->
-    <!--</div>&lt;!&ndash;/.well &ndash;&gt;-->
-    <!--</div>&lt;!&ndash;/span&ndash;&gt;-->
     <div class="span12">
-      <%= bootstrap_flash %>
-
-      <% unless notice.nil? %>
-          <p class="notice"><%= notice %></p>
-      <% end %>
-      <% unless alert.nil? %>
-          <p class="alert"><%= alert %></p>
-      <% end %>
       <%= yield %>
     </div>
   </div>
