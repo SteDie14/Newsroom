@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = Account.all
+    @accounts = Account.where(:user_id => current_user.id)
   end
 
   # GET /accounts/1
@@ -25,6 +25,7 @@ class AccountsController < ApplicationController
   # POST /accounts.json
   def create
     @account = Account.new(account_params)
+    @account.user_id= current_user.id
 
     respond_to do |format|
       if @account.save
