@@ -1,5 +1,11 @@
 Newsgrabber::Application.routes.draw do
 
+  resources :accounts
+
+  resources :expenses
+
+  resources :incomes
+
   devise_for :users
   post '/synchronize', to: 'news_items#synchronize'
 

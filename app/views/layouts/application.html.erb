@@ -72,13 +72,12 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to 'Quellen', rss_sources_path %></li>
-                <li><%= link_to 'Meldungen', news_items_path %></li>
-                <li><%= link_to 'Kategorien', folders_path %></li>
-                <li><%= link_to t('template.navigation.keywords'), '/keywords', :method => :get %></li>
+                <li><%= link_to 'Konten', accounts_path %></li>
+                <li><%= link_to 'Einnahmen', incomes_path %></li>
+                <li><%= link_to 'Ausgaben', expenses_path %></li>
                 <li class="divider"></li>
                 <li style="font-weight:bold;">
-                  <%= link_to t('template.navigation.update'), '/synchronize', :method => :post %>
+                  <%= link_to 'Auswertung',  '#' %>
                 </li>
               </ul>
           </li>

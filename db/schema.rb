@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131222142852) do
+ActiveRecord::Schema.define(version: 20131231190151) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expenses", force: true do |t|
+    t.string   "title"
+    t.decimal  "amount",          precision: 10, scale: 0
+    t.integer  "tax_rate"
+    t.date     "accounting_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "folders", force: true do |t|
     t.string   "title"
@@ -26,6 +41,14 @@ ActiveRecord::Schema.define(version: 20131222142852) do
   create_table "folders_news_items", force: true do |t|
     t.integer "folder_id"
     t.integer "news_item_id"
+  end
+
+  create_table "incomes", force: true do |t|
+    t.string   "title"
+    t.decimal  "amount",          precision: 10, scale: 0
+    t.date     "accounting_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "news_items", force: true do |t|
