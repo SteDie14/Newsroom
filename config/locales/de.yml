@@ -302,56 +302,56 @@ de:
       back: zurück
     edit:
       title: Meldung bearbeiten
-#  incomes:
-#      index:
-#        title: Einnahmen
-#      new:
-#         title: Einnahme Buchen
-#      edit:
-#        title: Einnahme bearbeiten
-#      show:
-#        back: zurück
-#    expenses:
-#      index:
-#        title: Ausgaben
-#      new:
-#         title: Ausgabe Buchen
-#      edit:
-#        title: Ausgabe bearbeiten
-#      show:
-#        back: zurück
-#    accounts:
-#      new:
-#        title: Neues Konto anlegen
-#      index:
-#        title: Konten
-#      edit:
-#        title: Konto bearbeiten
-#      show:
-#        back: zurück
+  incomes:
+      index:
+        title: Einnahmen
+      new:
+         title: Einnahme Buchen
+      edit:
+        title: Einnahme bearbeiten
+      show:
+        back: zurück
+  expenses:
+    index:
+      title: Ausgaben
+    new:
+       title: Ausgabe Buchen
+    edit:
+      title: Ausgabe bearbeiten
+    show:
+      back: zurück
+  accounts:
+    new:
+      title: Neues Konto anlegen
+    index:
+      title: Konten
+    edit:
+      title: Konto bearbeiten
+    show:
+      back: zurück
   template:
       navigation:
         keywords: Schlagworte
         update: Aktualisieren
-#  controllers:
-#      accounts:
-#        update:
-#          flash:
-#            success: "Das Konto wurde erfolgreich aktualisiert."
-#        create:
-#          flash:
-#            success: "Das Konto wurde erfolgreich angelegt."
-#      expenses:
-#        update:
-#          flash:
-#            success: "Die Ausgabe wurde erfolgreich aktualisiert."
-#        create:
-#          flash:
-#            success: "Die Ausgabe wurde erfolgreich gebucht."
-#      incomes:
-#        update:
-#          flash:
-#            success: "Die Einnahme wurde erfolgreich aktualisiert."
-#          create:
-#            flash:
-#              success: "Die Einnahme wurde erfolgreich gebucht."
+  controllers:
+      accounts:
+        update:
+          flash:
+            success: "Das Konto wurde erfolgreich aktualisiert."
+        create:
+          flash:
+            success: "Das Konto wurde erfolgreich angelegt."
+      expenses:
+        update:
+          flash:
+            success: "Die Ausgabe wurde erfolgreich aktualisiert."
+        create:
+          flash:
+            success: "Die Ausgabe wurde erfolgreich gebucht."
+      incomes:
+        update:
+          flash:
+            success: "Die Einnahme wurde erfolgreich aktualisiert."
+          create:
+            flash:
+              success: "Die Einnahme wurde erfolgreich gebucht."
