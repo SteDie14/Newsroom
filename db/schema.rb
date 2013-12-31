@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131231190151) do
+ActiveRecord::Schema.define(version: 20131231192306) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20131231190151) do
     t.date     "accounting_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "folders", force: true do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20131231190151) do
     t.date     "accounting_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "news_items", force: true do |t|

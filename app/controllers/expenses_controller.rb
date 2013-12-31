@@ -28,7 +28,7 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to @expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to @expense, notice: t("controllers.expenses.create.flash.success") }
         format.json { render action: 'show', status: :created, location: @expense }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class ExpensesController < ApplicationController
   def update
     respond_to do |format|
       if @expense.update(expense_params)
-        format.html { redirect_to @expense, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to @expense, notice: t("controllers.expenses.update.flash.success") }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +69,6 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:title, :amount, :tax_rate, :accounting_date)
+      params.require(:expense).permit(:title, :amount, :tax_rate, :accounting_date, :account_id)
     end
 end
