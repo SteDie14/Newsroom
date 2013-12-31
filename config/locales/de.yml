@@ -219,8 +219,20 @@ de:
     errors:
       <<: *errors
     models:
+      income:
+        one: Einnahme
+        other: Einnahmen
+        many: Einnahmen
+      expense:
+        one: Ausgabe
+        other: Ausgaben
+        many: Ausgaben
+      account:
+        one: Konto
+        other: Konten
+        many: Konten
       rss_source: RSS-Feed
-      folders:
+      folder:
         one: Kategorie
         other: Kategorien
         many: Kategorien
@@ -228,6 +240,24 @@ de:
         one: Meldung
         other: Meldungen
     attributes:
+      income:
+        id: ID
+        title: Titel
+        amount: Betrag
+        accounting_date: Buchungsdatum
+        created_at: Erstellungsdatum
+        account: Konto
+      expense:
+        id: ID
+        title: Titel
+        amount: Betrag
+        tax_rate: Steuersatz in %
+        accounting_date: Buchungsdatum
+        created_at: Erstellungsdatum
+        account: Konto
+      account:
+        id: ID
+        created_at: Erstellungsdatum
       folder:
         title: Name
         created_at: Erstellungsdatum
@@ -272,7 +302,56 @@ de:
       back: zurück
     edit:
       title: Meldung bearbeiten
+#  incomes:
+#      index:
+#        title: Einnahmen
+#      new:
+#         title: Einnahme Buchen
+#      edit:
+#        title: Einnahme bearbeiten
+#      show:
+#        back: zurück
+#    expenses:
+#      index:
+#        title: Ausgaben
+#      new:
+#         title: Ausgabe Buchen
+#      edit:
+#        title: Ausgabe bearbeiten
+#      show:
+#        back: zurück
+#    accounts:
+#      new:
+#        title: Neues Konto anlegen
+#      index:
+#        title: Konten
+#      edit:
+#        title: Konto bearbeiten
+#      show:
+#        back: zurück
   template:
       navigation:
         keywords: Schlagworte
         update: Aktualisieren
+#  controllers:
+#      accounts:
+#        update:
+#          flash:
+#            success: "Das Konto wurde erfolgreich aktualisiert."
+#        create:
+#          flash:
+#            success: "Das Konto wurde erfolgreich angelegt."
+#      expenses:
+#        update:
+#          flash:
+#            success: "Die Ausgabe wurde erfolgreich aktualisiert."
+#        create:
+#          flash:
+#            success: "Die Ausgabe wurde erfolgreich gebucht."
+#      incomes:
+#        update:
+#          flash:
+#            success: "Die Einnahme wurde erfolgreich aktualisiert."
+#          create:
+#            flash:
+#              success: "Die Einnahme wurde erfolgreich gebucht."
