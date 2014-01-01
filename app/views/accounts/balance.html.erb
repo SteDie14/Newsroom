@@ -9,5 +9,28 @@
     <p>TODO: Enddatum</p>
     <p>TODO: Summer</p>
     <p>TODO: Tabelle mit den einzelnen Buchungen</p>
-    <%= @bookings.inspect %>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Art</th>
+        <th>Titel</th>
+        <th>Betrag</th>
+        <th>Steuersatz</th>
+        <th>Buchungsdatum</th>
+        <th>Erstellungsdatum</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @bookings.each do |booking| %>
+          <tr>
+            <td><%= booking.class.model_name.human %></td>
+            <td><%= booking.title %></td>
+            <td><%= booking.amount %></td>
+            <td><%= booking.tax_rate %></td>
+            <td><%= booking.accounting_date %></td>
+            <td><%=l booking.created_at %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
 <% end %>
