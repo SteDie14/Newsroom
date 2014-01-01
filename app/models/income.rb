@@ -1,6 +1,6 @@
 class Income < Booking
   belongs_to :account
-  validates :account_id, :presence => true
+  validates :account, :presence => true
   validates :user_id, :presence => true
   validates :title, :presence => true
   validates :amount, :presence => true
