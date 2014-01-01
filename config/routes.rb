@@ -1,6 +1,10 @@
 Newsgrabber::Application.routes.draw do
 
-  resources :accounts
+  resources :accounts do
+    collection do
+      get 'balance'
+    end
+  end
 
   resources :expenses
 
