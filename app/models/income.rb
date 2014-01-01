@@ -1,4 +1,4 @@
-class Income < ActiveRecord::Base
+class Income < Booking
   belongs_to :account
   validates :account_id, :presence => true
   validates :user_id, :presence => true

@@ -1,4 +1,4 @@
-class Expense < ActiveRecord::Base
+class Expense < Booking
   belongs_to :account
   validates :account, :presence => true
   validates :user_id, :presence => true
