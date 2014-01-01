@@ -3,12 +3,30 @@
   <h1>Auswertung</h1>
 </div>
 <%= form_tag({:action => :balance}, {:method => :get}) do %>
-    <p>Konto TODO: Hat noch keine Auswirkung auf die Anzeige und setzt keinen Default-Value</p>
-    <%= collection_select(:account, :id, @accounts, :id, :name, :selected => @selected_account, :include_blank => "ALLE KONTEN") %>
-    <p>TODO: Startdatum</p>
-    <p>TODO: Enddatum</p>
-    <p>TODO: Summer</p>
-    <p>TODO: Tabelle mit den einzelnen Buchungen</p>
+      <div class="span2">
+        <strong>Konto TODO: Hat noch keine Auswirkung auf die Anzeige und setzt keinen Default-Value</strong>
+        <%= collection_select(:account, :id, @accounts, :id, :name, :selected => @selected_account, :include_blank => "ALLE KONTEN") %>
+      </div>
+      <div class="span1">
+        <strong>TODO: Startdatum</strong>
+      </div>
+
+      <div class="span1">
+        <strong>TODO: Enddatum</strong>
+      </div>
+
+      <div class="span1">
+        <br />
+        <button type="submit" class="btn btn-primary" alt="Filtern">
+          <i class="icon-filter"></i>
+        </button>
+      </div>
+
+    <div class="span12">
+      <strong>TODO: Summe</strong>
+    </div>
+
+
     <table class="table table-striped">
       <thead>
       <tr>
