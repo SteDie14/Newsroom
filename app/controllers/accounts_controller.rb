@@ -63,7 +63,8 @@ class AccountsController < ApplicationController
   end
 
   def balance
-    
+    @accounts = Account.where(:user_id => current_user.id)
+    @selected_account = 0
   end
 
   private
