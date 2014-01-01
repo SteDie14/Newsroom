@@ -64,6 +64,7 @@ class AccountsController < ApplicationController
 
   def balance
     @accounts = Account.where(:user_id => current_user.id)
+    @bookings = Booking.where(:account_id => @accounts)
     @selected_account = 0
   end
 
