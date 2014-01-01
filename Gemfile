@@ -36,6 +36,7 @@ gem 'highline'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
+gem 'bootstrap-datepicker-rails'
 
 
 gem 'validates_timeliness'
