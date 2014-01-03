@@ -269,7 +269,7 @@ de:
         created_at: Erstellungsdatum
       news_item:
         id: ID
-        release_date: Datum
+        release_date: Veröffentlichungsdatum
         created_at: Abrufzeitpunkt
         vendor: Medium
         headline: Überschrift
