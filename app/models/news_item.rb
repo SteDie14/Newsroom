@@ -9,6 +9,8 @@ class NewsItem < ActiveRecord::Base
   validates_presence_of :headline
 
   def update (params)
+    folder_ids = [params[:folder_ids][:first], params[:folder_ids][:second], params[:folder_ids][:third]].uniq
+    self.folder_ids = folder_ids
     self.save
   end
 

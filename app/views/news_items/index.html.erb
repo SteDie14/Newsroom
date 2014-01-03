@@ -11,6 +11,11 @@
         <a href="<%=new_news_item_path%>" class="btn btn-success"><i class="icon-plus"></i></a>
       </div>
 
+      <div class="span1">
+        <strong>Sortiert ?</strong>
+        <%= check_box_tag :edited, 1, @edited%>
+      </div>
+
       <div class="span2">
         <strong>Kategorie</strong>
         <br/>
@@ -46,8 +51,6 @@
           <i class="icon-search"></i>
         </button>
       </div>
-
-      <%#= submit_tag 'Filtern' %>
 
   <% end %>
 </div>

@@ -13,7 +13,18 @@ class NewsItemsController < ApplicationController
     @selected_operator1 = 0
     @selected_operator2 = 0
 
+    @edited = false;
+
     news_items = nil
+
+    # Nur Sortiert ?
+    if defined? params[:edited]
+      unless params[:edited].nil? || false == params[:folder][:folder_id1]
+        no_filter = false
+        @edited = true
+        query_edited = news_items = NewsItem.includes(:folders).where("folders_news_items.folder_id IN (?)", Folder.where(:user_id => current_user.id))
+      end
+    end
 
     # 1. Kategorie
     if defined? params[:folder][:folder_id1]
@@ -96,7 +107,9 @@ class NewsItemsController < ApplicationController
         end
       end
 
-
+      if @edited
+        query = query & query_edited
+      end
       news_items = query
     end
 
