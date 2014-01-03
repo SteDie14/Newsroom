@@ -6,6 +6,7 @@ class NewsItem < ActiveRecord::Base
   belongs_to :user, :inverse_of => :news_items
 
   validates_presence_of :user
+  validates_presence_of :headline
 
   def update (params)
     self.save
