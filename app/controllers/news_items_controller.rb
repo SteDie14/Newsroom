@@ -144,8 +144,14 @@ class NewsItemsController < ApplicationController
   # POST /news_items
   # POST /news_items.json
   def create
-    @news_item = NewsItem.new(news_item_params)
-
+    folder_ids = [news_item_params[:folder_ids][:first], news_item_params[:folder_ids][:second], news_item_params[:folder_ids][:third]].uniq
+    my_params = news_item_params
+    if folder_ids[0] == ""
+      my_params[:folder_ids] = []
+    end
+    @news_item = NewsItem.new
+    @news_item.attributes = my_params
+    @news_item.user = current_user
     respond_to do |format|
       if @news_item.save
         format.html { redirect_to @news_item, notice: 'News item was successfully created.' }

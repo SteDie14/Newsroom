@@ -2,7 +2,7 @@
     <div class="control-group">
       <%= label_tag "Kategorie 1", nil, class: 'control-label' %>
       <div class="controls">
-        <%= select_tag "news_item[folder_ids][first]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(@available_folders, :id, :title_for_selects, :selected => @news_item.folders[0].present? ? @news_item.folders[0].id : "") %>
+        <%= select_tag "news_item[folder_ids][first]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(Folder.where(:user_id => current_user.id), :id, :title_for_selects, :selected => @folder1) %>
       </div>
     </div>
 
@@ -10,7 +10,7 @@
       <%#= f.label :folder_id, :class => 'control-label' %>
       <%= label_tag "Kategorie 2", nil, class: 'control-label' %>
       <div class="controls">
-        <%= select_tag "news_item[folder_ids][second]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(@available_folders, :id, :title_for_selects, :selected => @news_item.folders[1].present? ? @news_item.folders[1].id : "") %>
+        <%= select_tag "news_item[folder_ids][second]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(Folder.where(:user_id => current_user.id), :id, :title_for_selects, :selected => @news_item.folders[1].present? ? @news_item.folders[1].id : "") %>
       </div>
     </div>
 
@@ -18,7 +18,7 @@
       <%#= f.label :folder_id, :class => 'control-label' %>
       <%= label_tag "Kategorie 3", nil, class: 'control-label' %>
       <div class="controls">
-        <%= select_tag "news_item[folder_ids][third]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(@available_folders, :id, :title_for_selects, :selected => @news_item.folders[2].present? ? @news_item.folders[2].id : "") %>
+        <%= select_tag "news_item[folder_ids][third]", content_tag(:option, ' ', :value => "")+options_from_collection_for_select(Folder.where(:user_id => current_user.id), :id, :title_for_selects, :selected => @news_item.folders[2].present? ? @news_item.folders[2].id : "") %>
       </div>
     </div>
 

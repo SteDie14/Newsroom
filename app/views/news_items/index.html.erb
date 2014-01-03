@@ -111,7 +111,7 @@
                 </td>
                 <!--<td><%= news_item.vendor %></td>-->
                 <td>
-                  <strong><%= RssSource.find(news_item.rss_source_id).title %></strong>
+                  <strong><%= news_item.rss_source_id.present? ? RssSource.find(news_item.rss_source_id).title : " " %></strong>
                   <br/>
                   <%= news_item.headline %>
                 </td>
