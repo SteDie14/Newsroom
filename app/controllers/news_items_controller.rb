@@ -133,6 +133,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items/new
   def new
     @news_item = NewsItem.new
+    @available_folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id), 99)
   end
 
   # GET /news_items/1/edit
