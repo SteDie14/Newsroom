@@ -13,8 +13,8 @@ module Tree
       "<span class='tree_#{self.depth}'>#{title}</span>".html_safe
     end
 
-    def possible_parents
-      parents = self.class.arrange_as_array#(:order => 'title')
+    def possible_parents (uid)
+      parents = Folder.where(:user_id => uid).arrange_as_array#(:order => 'title')
       return new_record? ? parents : parents - subtree
     end
   end

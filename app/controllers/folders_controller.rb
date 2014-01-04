@@ -17,7 +17,7 @@ class FoldersController < ApplicationController
   # @FIXME: Move logic into model
   def new
     @folder = Folder.new
-    folders = Folder.arrange_as_array({:order => 'title'}, Folder.all)
+    folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
     folders.each_with_index do |folder, index|
       unless folder.user_id == current_user.id && folder.depth < 2
         folders.delete_at(index)
@@ -29,7 +29,7 @@ class FoldersController < ApplicationController
   # GET /folders/1/edit
   # @FIXME: Move Logic into model
   def edit
-    folders = Folder.arrange_as_array({:order => 'title'}, @folder.possible_parents)
+    folders = Folder.arrange_as_array({:order => 'title'}, @folder.possible_parents(current_user.id))
     folders.each_with_index do |folder, index|
       unless folder.user_id == current_user.id
         folders.delete_at(index)

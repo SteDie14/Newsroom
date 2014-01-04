@@ -8,7 +8,6 @@
   <div class="control-group">
     <%= f.label :ancestry, :class => 'control-label' %>
     <div class="controls">
-      <%#= f.collection_select :parent_id, Folder.arrange_as_array({:order => 'title'}, @folder.possible_parents), :id, :title_for_selects, :include_blank => true %>
       <%= f.collection_select :parent_id, @folders, :id, :title_for_selects, :include_blank => true %>
     </div>
   </div>
