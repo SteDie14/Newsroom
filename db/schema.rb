@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140101155106) do
+ActiveRecord::Schema.define(version: 20140111144535) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20140101155106) do
     t.integer  "rss_source_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid"
+    t.text     "guid"
     t.text     "summary"
     t.integer  "tag_contra_id"
     t.integer  "tag_pro_id"
