@@ -41,6 +41,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'validates_timeliness'
 
+gem 'exception_notification'
+
 gem 'devise'
 gem 'devise-i18n-views'
 gem 'high_voltage'

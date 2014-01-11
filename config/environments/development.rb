@@ -15,13 +15,9 @@ Newsgrabber::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :address => "localhost",
-      :port => 1025,
-      :domain => "whatever.com",
-      :enable_starttls_auto => false
-  }
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.default_options = {from: 'exception@localhost'}
+  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -34,5 +30,10 @@ Newsgrabber::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+  config.middleware.use ExceptionNotification::Rack,
+                        :email => {
+                            :email_prefix => "[Exception] ",
+                            :sender_address => %{"Exception notifier"" <notifier@newsgrabber},
+                            :exception_recipients => %w{bernhard.zuern@gmail.com}
+                        }
 end
