@@ -355,3 +355,7 @@ de:
           create:
             flash:
               success: "Die Einnahme wurde erfolgreich gebucht."
+  will_paginate:
+      previous_label: "&#8592; Zurück"
+      next_label: "Vor &#8594;"
+      page_gap: "&hellip;"

@@ -36,6 +36,8 @@ gem 'highline'
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'less-rails'
+gem 'will_paginate'
+
 gem 'bootstrap-datepicker-rails'
 
 

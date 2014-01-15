@@ -119,7 +119,7 @@ class NewsItemsController < ApplicationController
 
     @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
 
-    @news_items = news_items
+    @news_items = news_items.paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /news_items/1
