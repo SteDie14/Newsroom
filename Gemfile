@@ -43,7 +43,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'validates_timeliness'
 
-gem 'exception_notification'
+#gem 'exception_notification'
+gem 'rake', '10.1.0'
 
 gem 'devise'
 gem 'devise-i18n-views'
