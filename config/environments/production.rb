@@ -80,8 +80,8 @@ Newsgrabber::Application.configure do
 
   config.action_mailer.default_url_options = {:host => 'user56412206-1.rho.railshoster.de'}
 
-  config.middleware.use ExceptionNotifier,
-    sender_address: 'noreply@user56412206-1.rho.railshoster.de',
-    exception_recipients: 'bernhard.zuern@gmail.com'
+ # config.middleware.use ExceptionNotifier,
+ #   sender_address: 'noreply@user56412206-1.rho.railshoster.de',
+ #   exception_recipients: 'bernhard.zuern@gmail.com'
 
 end
