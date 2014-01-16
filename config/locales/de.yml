@@ -131,7 +131,7 @@ de:
     label:
       rss_source:
         title: Titel
-        url: RSS-Feed URL
+        url: Quellen-URL
       user:
         remember_me: Eingeloggt bleiben
     links:
@@ -231,7 +231,7 @@ de:
         one: Konto
         other: Konten
         many: Konten
-      rss_source: RSS-Feed
+      rss_source: Quelle
       folder:
         one: Kategorie
         other: Kategorien
@@ -269,8 +269,8 @@ de:
         created_at: Erstellungsdatum
       news_item:
         id: ID
-        release_date: Veröffentlichungsdatum
-        created_at: Abrufzeitpunkt
+        release_date: Veröffentlichung
+        created_at: Abruf
         vendor: Medium
         headline: Überschrift
         topic: Thema
@@ -278,17 +278,17 @@ de:
         web_url: Link
         doc_url: Dokument
         comment: Inhalt
-        rss_source_id: RSS-Feed
+        rss_source_id: Quelle
         folders: Kategorien
       user:
         password: Passwort
   rss_sources:
     new:
-      title: RSS-Feed erstellen
+      title: Quelle erstellen
     index:
-      title: RSS-Feeds
+      title: Quellen
     edit:
-      title: RSS-Feed bearbeiten
+      title: Quelle bearbeiten
     show:
       back: zurück
   folders:
