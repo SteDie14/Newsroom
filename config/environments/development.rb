@@ -30,10 +30,10 @@ Newsgrabber::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.middleware.use ExceptionNotification::Rack,
-                        :email => {
-                            :email_prefix => "[Exception] ",
-                            :sender_address => %{"Exception notifier"" <notifier@newsgrabber},
-                            :exception_recipients => %w{bernhard.zuern@gmail.com}
-                        }
+  #config.middleware.use ExceptionNotification::Rack,
+  #                      :email => {
+  #                          :email_prefix => "[Exception] ",
+  #                          :sender_address => %{"Exception notifier"" <notifier@newsgrabber},
+  #                          :exception_recipients => %w{bernhard.zuern@gmail.com}
+  #                      }
 end
