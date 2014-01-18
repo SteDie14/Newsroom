@@ -110,7 +110,11 @@
                 </td>
                 <td>
                   <strong>
-                    <%= news_item.folders.collect { |folder| folder.title }.join(", ") %>
+                    <%
+                       news_item.folders.each do |folder| %>
+                            <%=folder.title%><br />
+                       <% end
+                    %>
                   </strong>
                 </td>
                 <td>
