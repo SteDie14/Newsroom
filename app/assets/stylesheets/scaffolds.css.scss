@@ -1,10 +1,17 @@
 body {
-  //background-color: #fff;
+  background-color: #fff;
   background-image: url('background.jpg');
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+div#body-wrapper {
+  padding-top: 40px;
+  background: url('logo.png');
+  background-repeat: no-repeat;
+  background-position: right 45px;
 }
 
 p, ol, ul, td {

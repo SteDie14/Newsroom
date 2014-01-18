@@ -1,59 +1,65 @@
 <%- model_class = NewsItem -%>
-<div class="page-header">
-  <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+<!--Header-->
+<div class="row-fluid">
+  <div class="page-header">
+    <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
 </div>
-<div id="filter">
+<div class=row-fluid">
+  <div id="filter">
+    <%= form_tag({:action => :index}, {:method => :get}) do %>
 
-  <%= form_tag({:action => :index}, {:method => :get}) do %>
+        <div class="span1">
+          <strong>Neu</strong><br/>
+          <a href="<%= new_news_item_path %>" class="btn btn-success"><i class="icon-plus"></i></a>
+        </div>
 
-      <div class="span1">
-        <strong>Neu</strong><br />
-        <a href="<%=new_news_item_path%>" class="btn btn-success"><i class="icon-plus"></i></a>
-      </div>
+        <div class="span1">
+          <strong>Sortiert ?</strong>
+          <%= check_box_tag :edited, 1, @edited %>
+        </div>
 
-      <div class="span1">
-        <strong>Sortiert ?</strong>
-        <%= check_box_tag :edited, 1, @edited%>
-      </div>
+        <div class="span2">
+          <strong>Kategorie</strong>
+          <br/>
+          <%= collection_select(:folder, :folder_id1, @folders, :id, :title_for_selects, :selected => @selected_folder1, :include_blank => true) %>
+        </div>
 
-      <div class="span2">
-        <strong>Kategorie</strong>
-        <br/>
-        <%= collection_select(:folder, :folder_id1, @folders, :id, :title_for_selects, :selected => @selected_folder1, :include_blank => true) %>
-      </div>
+        <div class="span1">
+          <strong>Operator</strong>
+          <%= select(:folder, :operator1, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => @selected_operator1, :include_blank => true) %>
+        </div>
 
-      <div class="span1">
-        <strong>Operator</strong>
-        <%= select(:folder, :operator1, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => @selected_operator1, :include_blank => true) %>
-      </div>
+        <div class="span2">
+          <strong>Kategorie</strong>
+          <br/>
+          <%= collection_select(:folder, :folder_id2, @folders, :id, :title_for_selects, :selected => @selected_folder2, :include_blank => true) %>
+        </div>
 
-      <div class="span2">
-        <strong>Kategorie</strong>
-        <br/>
-        <%= collection_select(:folder, :folder_id2, @folders, :id, :title_for_selects, :selected => @selected_folder2, :include_blank => true) %>
-      </div>
+        <div class="span1">
+          <strong>Operator</strong>
+          <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => @selected_operator2, :include_blank => true) %>
+        </div>
 
-      <div class="span1">
-        <strong>Operator</strong>
-        <%= select(:folder, :operator2, {'and' => 'and', 'or' => 'or', 'xor' => 'xor'}, :selected => @selected_operator2, :include_blank => true) %>
-      </div>
-
-      <div class="span2">
-        <strong>Kategorie</strong>
-        <br/>
-        <%= collection_select(:folder, :folder_id3, @folders, :id, :title_for_selects, :selected => @selected_folder3, :include_blank => true) %>
-      </div>
+        <div class="span2">
+          <strong>Kategorie</strong>
+          <br/>
+          <%= collection_select(:folder, :folder_id3, @folders, :id, :title_for_selects, :selected => @selected_folder3, :include_blank => true) %>
+        </div>
 
 
-      <div class="span1">
-        <br />
-        <button type="submit" class="btn btn-primary">
-          <i class="icon-search"></i>
-        </button>
-      </div>
+        <div class="span1">
+          <br/>
+          <button type="submit" class="btn btn-primary">
+            <i class="icon-search"></i>
+          </button>
+        </div>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>
+
+
 <%= form_tag update_multiple_news_items_path, :method => :put do |ft| %>
     <table class="table table-striped" style="background-color: #ffffff;">
       <thead>
@@ -126,9 +132,9 @@
 
                 <td>
                   <%#= link_to t('.edit', :default => t("helpers.links.edit")),edit_news_item_path(news_item), :class => 'btn btn-mini' %>
-                  <%= link_to "",edit_news_item_path(news_item), :class => 'btn icon-edit' %>
-                  <br />
-                  <br />
+                  <%= link_to "", edit_news_item_path(news_item), :class => 'btn icon-edit' %>
+                  <br/>
+                  <br/>
                   <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
                               news_item_path(news_item),
                               :method => :delete,
@@ -148,4 +154,3 @@
     <%= submit_tag "Speichern" %>
     <%= will_paginate @products %>
 <% end %>
-<%#= link_to t('.new', :default => t("helpers.links.new")), new_news_item_path, :class => 'btn btn-primary' %>

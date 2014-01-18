@@ -112,18 +112,18 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div id="body-wrapper" class="container-fluid">
   <% flash.each do |name,msg| %>
     <div class="alert alert-<%= name == :notice ? 'success' : 'error' %>">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <%= msg %>
     </div>
   <% end %>
-  <div class="row-fluid">
-    <div class="span12">
+  <!--<div class="row-fluid">-->
+    <!--<div class="span12">-->
       <%= yield %>
-    </div>
-  </div>
+    <!--</div>-->
+  <!--</div>-->
   <!--/row-->
   <br/>
   <footer class="row">
