@@ -80,11 +80,8 @@
           <%= model_class.human_attribute_name(:folders) %>
         </th>
         <th>
-          <%= model_class.human_attribute_name(:rss_source_id) %>
-          <br/>
           <%= model_class.human_attribute_name(:headline) %>
         </th>
-        <th><%= model_class.human_attribute_name(:web_url) %></th>
 
         <th><%= t '.actions', :default => t("helpers.actions") %></th>
       </tr>
@@ -100,11 +97,9 @@
                   <%= l news_item.created_at %>
                 </td>
                 <td>
-                  <!--<div class="control-group">-->
                   <div class="controls">
                     <%= text_field_tag "news_items["+news_item.id.to_s+"][tag_pro]", (defined?(news_item.tag_pro.name) ? news_item.tag_pro.name : " "), :class => "input-small" %>
                   </div>
-                  <!--</div>-->
                 </td>
                 <td>
                   <div class="control-group">
@@ -118,28 +113,13 @@
                     <%= news_item.folders.collect { |folder| folder.title }.join(", ") %>
                   </strong>
                 </td>
-                <!--<td><%= news_item.vendor %></td>-->
                 <td>
-                  <strong><%= news_item.rss_source_id.present? ? RssSource.find(news_item.rss_source_id).title : " " %></strong>
-                  <br/>
-                  <%= news_item.headline %>
+                  <a href="<%= news_item.web_url %>" target="_blank"><%= news_item.headline %></a>
                 </td>
-                <!--<td><%= news_item.topic %></td>-->
-                <!--<td><%= news_item.keywords %></td>-->
-                <td><a href="<%= news_item.web_url %>" target="_blank"><%= news_item.web_url %></a></td>
-                <!--<td><%= news_item.doc_url %></td>-->
-                <!--<td><%= news_item.comment %></td>-->
-
                 <td>
-                  <%#= link_to t('.edit', :default => t("helpers.links.edit")),edit_news_item_path(news_item), :class => 'btn btn-mini' %>
                   <%= link_to "", edit_news_item_path(news_item), :class => 'btn icon-edit' %>
                   <br/>
                   <br/>
-                  <%#= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                              news_item_path(news_item),
-                              :method => :delete,
-                              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
-                              :class => 'btn btn-mini btn-danger' %>
                   <%= link_to " ",
                               news_item_path(news_item),
                               :method => :delete,
