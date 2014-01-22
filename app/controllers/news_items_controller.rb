@@ -119,7 +119,8 @@ class NewsItemsController < ApplicationController
 
     @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
 
-    #@TODO: Add like query for fulltextsearch.
+    # @TODO: Add like query for fulltextsearch.
+    #news_itemsNewsItem.where("headline like ? OR summary like ?","%Flasch%", "%Flasch%").count
 
     @news_items = news_items.paginate(:per_page => 5, :page => params[:page])
   end
