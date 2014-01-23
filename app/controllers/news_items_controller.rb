@@ -27,11 +27,16 @@ class NewsItemsController < ApplicationController
       end
     end
 
+    search_query = nil
+
     # Volltextsuche
+    @search_string = ""
     if defined? params[:search_string]
       unless params[:search_string].nil?
+        @search_string  = params[:search_string]
         do_search = true
-        search_query = news_itemsNewsItem.where("headline like ? OR summary like ?",'%'+params[:search_string]+'%', '%'+params[:search_string]+'%')
+        #search_query = NewsItem.where("headline like ? OR summary like ?",'%'+@search_string+'%', '%'+@search_string+'%')
+        search_query = NewsItem.where("headline like ?", '%'+@search_string+'%')
       end
     end
 
@@ -79,6 +84,7 @@ class NewsItemsController < ApplicationController
       end
     end
 
+
     # Auswerten
     unless query1.nil?
 
@@ -120,8 +126,21 @@ class NewsItemsController < ApplicationController
       if @edited
         query = query & query_edited
       end
+
+    end
+
+    unless search_query.nil?#
+      if query.nil?
+        query = search_query
+      else
+        query = query & search_query
+      end
+    end
+
+    unless query.nil?
       news_items = query
     end
+
 
     if news_items.nil? && no_filter
       news_items = NewsItem.where(:user_id => current_user.id)
