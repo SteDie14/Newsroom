@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class NewsItemsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_news_item, only: [:show, :edit, :update, :destroy]
@@ -123,10 +125,14 @@ class NewsItemsController < ApplicationController
         end
       end
 
-      if @edited
+    end
+
+    if @edited
+      if query.nil?
+        query = query_edited
+      else
         query = query & query_edited
       end
-
     end
 
     unless search_query.nil?#
@@ -148,7 +154,9 @@ class NewsItemsController < ApplicationController
 
     @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
 
-    @news_items = news_items.paginate(:per_page => 5, :page => params[:page])
+    #unless news_items.eql? []
+      @news_items = news_items.paginate(:per_page => 50, :page => params[:page])
+    #end
   end
 
   # GET /news_items/1

@@ -91,7 +91,7 @@
           </a>
         </div>
         <div class="span2">
-          <strong>Nur neue Meldungen</strong>
+          <strong>Sortiert ?</strong>
           <%= check_box_tag :edited, 1, @edited %>
         </div>
         <div class="span3">
@@ -202,5 +202,5 @@
       </tbody>
     </table>
     <%= submit_tag "Speichern" %>
-    <%= will_paginate @products %>
+    <%= will_paginate @news_items %>
 <% end %>
