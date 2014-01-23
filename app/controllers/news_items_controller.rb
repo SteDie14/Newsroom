@@ -6,6 +6,7 @@ class NewsItemsController < ApplicationController
   # GET /news_items.json
   def index
     no_filter = true
+    do_search = false
     @selected_folder1 = 0
     @selected_folder2 = 0
     @selected_folder3 = 0
@@ -25,6 +26,15 @@ class NewsItemsController < ApplicationController
         query_edited = news_items = NewsItem.includes(:folders).where("folders_news_items.folder_id IN (?)", Folder.where(:user_id => current_user.id))
       end
     end
+
+    # Volltextsuche
+    if defined? params[:search_string]
+      unless params[:search_string].nil?
+        do_search = true
+        search_query = news_itemsNewsItem.where("headline like ? OR summary like ?",'%'+params[:search_string]+'%', '%'+params[:search_string]+'%')
+      end
+    end
+
 
     # 1. Kategorie
     if defined? params[:folder][:folder_id1]
@@ -118,9 +128,6 @@ class NewsItemsController < ApplicationController
     end
 
     @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
-
-    # @TODO: Add like query for fulltextsearch.
-    #news_itemsNewsItem.where("headline like ? OR summary like ?","%Flasch%", "%Flasch%").count
 
     @news_items = news_items.paginate(:per_page => 5, :page => params[:page])
   end

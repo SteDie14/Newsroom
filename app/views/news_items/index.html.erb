@@ -1,100 +1,111 @@
 <%- model_class = NewsItem -%>
-<!--Header-->
-<div class="row-fluid">
-  <div class="span2">
-    <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-    <a href="<%= new_news_item_path %>" class="btn btn-success btn-mini">
-      <i class="icon-plus">&nbsp;Meldung</i>
-    </a>
-  </div>
-  <div class="span9">
-    <div class="controls controls-row">
-      <!-- Kategorie 1-->
-      <%= collection_select(
-                  :folder, :folder_id1, @folders, :id, :title_for_selects,
-                  {
-                          :selected => @selected_folder1,
-                          :include_blank => 'Kategorie'
-                  }, {
-                          :class => 'input-medium'
-                  }
-          )
-      %>
-      <!-- Operator 1-->
-      <%= select(
-                  :folder, :operator1,
-                  {
-                          '&&' => 'and',
-                          '||' => 'or',
-                          'xor' => 'xor'
-                  }, {
-                          :selected => @selected_operator1,
-                          :include_blank => 'op'
-                  }, {
-                          :class => 'input-mini'
-                  }
-          )
-      %>
-      <!-- Kategorie 2-->
-      <%= collection_select(
-                  :folder,
-                  :folder_id2,
-                  @folders,
-                  :id,
-                  :title_for_selects,
-                  {
-                          :selected => @selected_folder2,
-                          :include_blank => 'Kategorie'
-                  }, {
-                          :class => 'input-medium'
-                  }
-          ) %>
-      <!-- Operator 1-->
-      <%= select(
-                  :folder,
-                  :operator2,
-                  {
-                          'and' => 'and',
-                          'or' => 'or',
-                          'xor' => 'xor'
-                  }, {
-                          :selected => @selected_operator2,
-                          :include_blank => 'op'
-                  }, {
-                          :class => 'input-mini'
-                  }) %>
-      <!-- Kategorie 3-->
-      <%= collection_select(
-                  :folder,
-                  :folder_id3,
-                  @folders,
-                  :id,
-                  :title_for_selects,
-                  {
-                          :selected => @selected_folder3,
-                          :include_blank => 'Kategorie'
-                  }, {
-                          :class => 'input-medium'
-                  }
-          )
-      %>
-    </div>
-  </div>
-</div>
-<div class=row-fluid">
-  <%= form_tag({:action => :index}, {:method => :get}) do %>
-      <div class="span1">
-        <strong>Neu</strong>
-        <%= check_box_tag :edited, 1, @edited %>
-      </div>
+<%= form_tag({:action => :index}, {:method => :get}) do %>
+    <!--Header-->
+    <div class="row-fluid">
       <div class="span2">
-        <!--<br/>-->
-        <button type="submit" class="btn btn-info btn-mini">
-          <i class="icon-search">&nbsp;Filtern</i>
-        </button>
+        <h1><%= t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
       </div>
-  <% end %>
-</div>
+      <div class="span9">
+
+        <div class="controls controls-row">
+          <!-- Kategorie 1-->
+          <%= collection_select(
+                      :folder, :folder_id1, @folders, :id, :title_for_selects,
+                      {
+                              :selected => @selected_folder1,
+                              :include_blank => 'Kategorie'
+                      }, {
+                              :class => 'input-medium'
+                      }
+              )
+          %>
+          <!-- Operator 1-->
+          <%= select(
+                      :folder, :operator1,
+                      {
+                              '&&' => 'and',
+                              '||' => 'or',
+                              'xor' => 'xor'
+                      }, {
+                              :selected => @selected_operator1,
+                              :include_blank => 'op'
+                      }, {
+                              :class => 'input-mini'
+                      }
+              )
+          %>
+          <!-- Kategorie 2-->
+          <%= collection_select(
+                      :folder,
+                      :folder_id2,
+                      @folders,
+                      :id,
+                      :title_for_selects,
+                      {
+                              :selected => @selected_folder2,
+                              :include_blank => 'Kategorie'
+                      }, {
+                              :class => 'input-medium'
+                      }
+              ) %>
+          <!-- Operator 1-->
+          <%= select(
+                      :folder,
+                      :operator2,
+                      {
+                              'and' => 'and',
+                              'or' => 'or',
+                              'xor' => 'xor'
+                      }, {
+                              :selected => @selected_operator2,
+                              :include_blank => 'op'
+                      }, {
+                              :class => 'input-mini'
+                      }) %>
+          <!-- Kategorie 3-->
+          <%= collection_select(
+                      :folder,
+                      :folder_id3,
+                      @folders,
+                      :id,
+                      :title_for_selects,
+                      {
+                              :selected => @selected_folder3,
+                              :include_blank => 'Kategorie'
+                      }, {
+                              :class => 'input-medium'
+                      }
+              )
+          %>
+        </div>
+      </div>
+    </div>
+    <div class=row-fluid">
+      <div class="controls controls-row">
+        <div class="span3">
+          &nbsp;
+        </div>
+        <div class="span2">
+          <a href="<%= new_news_item_path %>" class="btn btn-success btn-mini">
+            <i class="icon-plus">&nbsp;Meldung</i>
+          </a>
+        </div>
+        <div class="span2">
+          <strong>Nur neue Meldungen</strong>
+          <%= check_box_tag :edited, 1, @edited %>
+        </div>
+        <div class="span3">
+          Suche <%=text_field_tag(:search_string)%>
+        </div>
+        <div class="span2">
+          <!--<br/>-->
+          <button type="submit" class="btn btn-info btn-mini">
+            <i class="icon-search">&nbsp;Filtern</i>
+          </button>
+        </div>
+      </div>
+    </div>
+<% end %>
 <%= form_tag update_multiple_news_items_path, :method => :put do |ft| %>
     <table class="table table-striped" style="background-color: #ffffff;">
       <thead>
