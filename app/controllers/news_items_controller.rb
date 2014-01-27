@@ -145,6 +145,18 @@ class NewsItemsController < ApplicationController
       end
     end
 
+    # Filtern nach Quelle
+    if defined? params[:source][:source_id]
+      unless params[:source][:source_id].to_i <= 0
+        @selected_source = params[:source][:source_id]
+        if query.nil?
+          query = NewsItem.where(:user_id => current_user.id).where(:rss_source_id => @selected_source)
+        else
+          query = query & NewsItem.where(:user_id => current_user.id).where(:rss_source_id => @selected_source)
+        end
+      end
+    end
+
     unless query.nil?
       news_items = query
     end
