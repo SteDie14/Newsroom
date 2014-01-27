@@ -16,6 +16,8 @@ class NewsItemsController < ApplicationController
     @selected_operator1 = 0
     @selected_operator2 = 0
 
+    @selected_source = 0
+
     @edited = false;
 
     news_items = nil
@@ -153,6 +155,8 @@ class NewsItemsController < ApplicationController
     end
 
     @folders = Folder.arrange_as_array({:order => 'title'}, Folder.where(:user_id => current_user.id))
+
+    @sources = RssSource.where(:user_id => current_user.id)
 
     #unless news_items.eql? []
       @news_items = news_items.paginate(:per_page => 50, :page => params[:page])

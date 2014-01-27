@@ -98,6 +98,21 @@
           Suche <%=text_field_tag(:search_string, @search_string)%>
         </div>
         <div class="span2">
+          <%= collection_select(
+                             :source,
+                             :source_id,
+                             @sources,
+                             :id,
+                             :title,
+                             {
+                                     :selected => @selected_source,
+                                     :include_blank => 'Quelle'
+                             }, {
+                                     :class => 'input-medium'
+                             }
+                     ) %>
+        </div>
+        <div class="span2">
           <!--<br/>-->
           <button type="submit" class="btn btn-info btn-mini">
             <i class="icon-search">&nbsp;Filtern</i>
