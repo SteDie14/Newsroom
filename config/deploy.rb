@@ -52,7 +52,7 @@ set :password, "n1CuqWCbAB"
 set :application, "rails1"
 
 # repository location
-set :repository, "git@bitbucket.org:effectivebytes/newsgrabber.git"
+set :repository, "git@bitbucket.org:effectivebytes/cygnus-consulting.git"
 
 # :subversionn or :git
 set :scm, :git

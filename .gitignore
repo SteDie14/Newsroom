@@ -21,6 +21,5 @@ public/dispatch.fcgi
 public/assets
 
 .idea/workspace.xml
-.idea/newsgrabber.iml
 
 config/database.yml
