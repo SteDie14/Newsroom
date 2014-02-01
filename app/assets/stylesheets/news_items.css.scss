@@ -3,8 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div.pagination {
-  margin: auto;
+  margin: 0 auto;
+  float: none;
   font-size: 1em;
+  text-align: center;
+  padding-bottom: 10px;
 }
 
 em.current {

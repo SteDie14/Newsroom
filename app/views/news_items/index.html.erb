@@ -121,6 +121,9 @@
       </div>
     </div>
 <% end %>
+<div class="row-fluid">
+  <%= will_paginate @news_items %>
+</div>
 <%= form_tag update_multiple_news_items_path, :method => :put do |ft| %>
     <table class="table table-striped" style="background-color: #ffffff;">
       <thead>
